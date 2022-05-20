@@ -5,15 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - HomeApp
+  - Item
+  - floar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Ground
   - 
   - 
   - 

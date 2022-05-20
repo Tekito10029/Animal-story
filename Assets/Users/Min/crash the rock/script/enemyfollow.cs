@@ -29,7 +29,7 @@ public class enemyfollow : MonoBehaviour
     public float StopDistance;
 
     public walkmove mk;
-
+    public bool ischarging = true;
     private bool following = false;
     private bool follow = false;
     public bool enemyMove = true;
