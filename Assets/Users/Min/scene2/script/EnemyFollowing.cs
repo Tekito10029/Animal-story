@@ -12,25 +12,15 @@ public class EnemyFollowing : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
-    //public Transform target;
     public float speed = 3.0f;         //���x
     public float stopDistance;         //�~�܂�Ƃ��̋���
 
     public bool isFollowing = false;   //�Ǐ]���邩�ǂ���
 
     public MoveTest mt;
-
-    public bool enemyMove = true;      //�G�l�~�[�̓���
-    private bool Jump = false;         //�W�����v�p
-    private bool Follow = false;       //��x�ڂ̓��͂ł̂��Ă��邩�ۂ�
-    public bool isCharging = true;
     Rigidbody2D rigid2D;
-    float jumpForce = 300.0f;          //�W�����v��
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Jump = false;
-    }
+
     //�����ɒ����܂ŃW�����v�����Ȃ��}��
 
     // Start is called before the first frame update
@@ -81,94 +71,9 @@ public class EnemyFollowing : MonoBehaviour
             }
 
             //�W�����v
-            if (Jump == false && Input.GetKeyDown(KeyCode.Space))
-            {
-                this.rigid2D.AddForce(transform.up * this.jumpForce);
-                Jump = !Jump;
-            }
         }
 
-        //�G�l�~�[�̓����p
-        if (enemyMove == false)
-        {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                this.transform.Translate(-0.01f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                this.transform.Translate(0.01f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-
-            if (Jump == false && Input.GetKeyDown(KeyCode.Space))
-            {
-                this.rigid2D.AddForce(transform.up * this.jumpForce);
-                Jump = !Jump;
-            }
-        }
-
-        // �Ǐ]�̐؂�ւ�����
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //     //GetComponent<EnemyFollowing>().enabled = false;
-        //     Following();
-        //}
-
-        //������̐؂�ւ�����
-        //1��ڂ̐؂�ւ����̓���
-        if (Input.GetKeyDown(KeyCode.Pause) && Follow == false)
-        {
-            //GetComponent<EnemyFollowing>().enabled = false;
-            mt.playerMove = !mt.playerMove;
-            Following();
-            enemyMove = !enemyMove;
-            //PlayerChange(); //���ɂ�����������ƂȂ�Ăł��܂���ł����B
-            Follow = !Follow;
-        }
-
-        //2��ڂ̐؂�ւ����A�v���C���[���������ăG�l�~�[�s����
-        //���̏�Ԃ��Ɖ���Enter�����Ă��v���C���[�����������
-        else if(Input.GetKeyDown(KeyCode.Delete) && Follow == true)
-        {
-            //Following();  //����Ȃ̒m��܂���B
-            isFollowing = false;
-            enemyMove = true;
-            mt.playerMove = false;
-        }
-
-        //�Ăԃ{�^��(Delete���u��)�����������̓���
-        //Follow��؂�ւ��邱�Ƃł�����x�Ǐ]��؂�ւ����ł��邨
-        if (Follow == true && Input.GetKeyDown(KeyCode.End))
-        {
-            //Following();  //�����A�킩��Ȃ��B
-            isFollowing = true;
-            Follow = !Follow;
-        }
-    }
-
-    // ���ĒǏ]�̐؂�ւ�����������
-    public void Following()
-    {
-        isFollowing = !isFollowing;
-    }
-
-    // ���đ���̐؂�ւ�����������
-    public void PlayerChange()
-    {
-        // �v���C���[�̑�����ł��Ȃ�����
-        mt.playerMove = !mt.playerMove;
-
-        // ���쌠��G�Ɉړ�������
-        Following();
-        enemyMove = !enemyMove;
-
-        //���̏�ԂŌ��̃{�^���������ƁA����؂�ւ��E�Ǐ]�Ȃ�
-
-        // �J�����̒Ǐ]��G�Ɉڂ����N���撣���ăN�������X���͖{�莛
-    }
+    } 
    
 }
 
