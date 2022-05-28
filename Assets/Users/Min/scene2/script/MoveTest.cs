@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
-    public GameObject player;
-
-    public bool playerMove = false;
-    
     Rigidbody2D rigid2D;
+    
+    [Header("Player")]
+    [SerializeField]private GameObject player;
+    [Header("EnemyFollowing Script")]
+    [SerializeField]private EnemyFollowing EnemyCon;
+    [Header("Hp Canvas")]
+    [SerializeField]private GameObject HpCanvas;
+    
+    
+    [Header("Player Move Check")]
+    public bool playerMove = false;
+    [Header("Check to Enemy")]
     public bool touchFlag = false;
-   
-
-    public EnemyFollowing EnemyCon;
-
-
+    [Header("Rock")]
+    public bool RockFlag = false;
     
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
@@ -48,14 +50,32 @@ public class MoveTest : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                EnemyCon.isFollowing = true;
+                EnemyCon.isFollowing = true; 
             }
             
         }
+        else 
+        {
+            HpCanvas.SetActive(false);
+        }   
 
-       
-        
-        
+        if(RockFlag == true)
+        {
+            if(Input.GetKeyDown(KeyCode.Delete))
+            {
+                EnemyCon.isRock = true;
+                EnemyCon.isFollowing = false;
+                StartCoroutine(rockdestroy());
+            }
+        } 
+    }
+    IEnumerator rockdestroy()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(EnemyCon.Target.gameObject);
+        Destroy(EnemyCon.enemy.gameObject);
+        EnemyCon.isRock = false;
+
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,7 +83,12 @@ public class MoveTest : MonoBehaviour
         if (collision.gameObject.tag == "HomeApp")
         {
             touchFlag = true;
-        }   
+            HpCanvas.SetActive(true);
+        } 
+        if(collision.gameObject.tag == "rock")
+        {
+            RockFlag =  true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -71,7 +96,11 @@ public class MoveTest : MonoBehaviour
         if (collision.gameObject.tag == "HomeApp")
         {
             touchFlag = false;
-
         }
+        if(collision.gameObject.tag == "rock")
+        {
+            RockFlag = false;
+        }
+
     }
 }
