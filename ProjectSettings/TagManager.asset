@@ -8,6 +8,8 @@ TagManager:
   - HomeApp
   - Item
   - floar
+  - rock
+  - rocking
   layers:
   - Default
   - TransparentFX
