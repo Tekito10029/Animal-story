@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     
     private string _text =
         "!background_sprite=\"background_sprite1\"!charaimg_sprite=\"polygon\"=\"background_sprite2\""+
-        "!charaimg_size=\"polygon\"=\"500, 500, 1\"&プレイヤー「Hello,World!」&イノシシ「これはテキスト表示のサンプルです」" +
-        "&!background_sprite=\"background_sprite2\"!background_color=\"255,0,255\"!charaimg_pos=\"polygon\"=\"-500, 500, 0\"&ハクチョウ「こんにちは！」";
+        "!charaimg_size=\"polygon\"=\"500, 500, 1\"&プレイヤー「Test1」&イノシシ「Test2」" +
+        "&!background_sprite=\"background_sprite2\"!background_color=\"0,0,255\"!charaimg_pos=\"polygon\"=\"-500, 0, 0\"&ハクチョウ「Test3」";
 
     private const char SEPARATE_MAIN_START = '「';
     private const char SEPARATE_MAIN_END = '」';
