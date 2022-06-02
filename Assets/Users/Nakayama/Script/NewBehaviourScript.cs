@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    Rigidbody2D rigid2D;
+    
+    [Header("Player")]
+    [SerializeField]private GameObject player;
+    [Header("EnemyFollowing Script")]
+    [SerializeField]private EnemyFollowing EnemyCon;
+    [Header("Hp Canvas")]
+    [SerializeField]private GameObject HpCanvas;
+    
+    
+    [Header("Player Move Check")]
+    public bool playerMove = false;
+    [Header("Check to Enemy")]
+    public bool touchFlag = false;
+    [Header("Rock")]
+    public bool RockFlag = false;
     private float speed = 0.05f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
+    {
+      move();
+    }
+
+    private void move()
     {
         Vector2 position = transform.position;
 
@@ -24,6 +39,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             position.x += speed;
         }
+
         transform.position = position;
     }
 }

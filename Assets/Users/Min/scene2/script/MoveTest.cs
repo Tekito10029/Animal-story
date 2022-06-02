@@ -41,18 +41,17 @@ public class MoveTest : MonoBehaviour
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                this.transform.Translate(0.1f, 0.0f, 0.0f);
+                this.transform.Translate(0.1f, 0.0f, 0.0f); 
                 transform.localScale = new Vector3(0.5f, 0.4710938f, 1);
             }
         }
 
         if(touchFlag == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                EnemyCon.isFollowing = true; 
+                EnemyCon.isFollowing = true;
             }
-            
         }
         else 
         {
@@ -61,7 +60,7 @@ public class MoveTest : MonoBehaviour
 
         if(RockFlag == true)
         {
-            if(Input.GetKeyDown(KeyCode.Delete))
+            if(Input.GetKeyDown(KeyCode.A))
             {
                 EnemyCon.isRock = true;
                 EnemyCon.isFollowing = false;
