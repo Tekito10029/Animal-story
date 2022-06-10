@@ -1,0 +1,21 @@
+!background_sprite="background_sprite1"
+!charaimg_sprite="polygon"="background_sprite2"
+!charaimg_size="polygon"="500, 500, 1"
+!charaimg_active="polygon"="false"
+
+&ルカ「Hello,World!」
+
+&!charaimg_active="polygon"="true"
+
+&イノシシ「これはテキスト表示のサンプルです」
+
+&!charaimg_active="polygon"="false"
+!background_sprite="background_sprite2"
+!background_color="255,0,255"
+!charaimg_pos="polygon"="-500, 500, 0"
+
+&ハクチョウ「こんにちは！」
+
+&!charaimg_delete="polygon"=""
+
+&「ポリゴンを削除しました」

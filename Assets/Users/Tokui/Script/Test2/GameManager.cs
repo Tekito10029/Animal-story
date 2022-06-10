@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
     private string prefabsDirectory = "Prefabs/";
     private List<Image> _charaImageList = new List<Image>();
     
+    [SerializeField]
+    private string textFile = "Texts/Scenario";
+    
+    private string _text = "";
+    
     private const char SEPARATE_COMMAND = '!';
     private const char COMMAND_SEPARATE_PARAM = '=';
     private const string COMMAND_BACKGROUND = "background";
@@ -34,16 +39,15 @@ public class GameManager : MonoBehaviour
     private const string COMMAND_POSITION = "_pos";
     private const string COMMAND_ROTATION = "_rotate";
     private const string CHARACTER_IMAGE_PREFAB = "CharacterImage";
-    
-    private string _text =
-        "!background_sprite=\"background_sprite1\"!charaimg_sprite=\"polygon\"=\"background_sprite2\""+
-        "!charaimg_size=\"polygon\"=\"500, 500, 1\"&プレイヤー「Test1」&イノシシ「Test2」" +
-        "&!background_sprite=\"background_sprite2\"!background_color=\"0,0,255\"!charaimg_pos=\"polygon\"=\"-500, 0, 0\"&ハクチョウ「Test3」";
 
+    private const string COMMAND_ACTIVE = "_active";
+    private const string COMMAND_DELETE = "_delete";
+    
     private const char SEPARATE_MAIN_START = '「';
     private const char SEPARATE_MAIN_END = '」';
     
     private const char SEPARATE_PAGE = '&';
+    
     private Queue<string> _pageQueue;
     
     private Queue<char> _charQueue;
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
     //初期化する
     private void Init()
     {
+        _text = LoadTextFile(textFile);
         _pageQueue = SeparateString(_text, SEPARATE_PAGE);
         ShowNextPage();
     }
@@ -64,6 +69,20 @@ public class GameManager : MonoBehaviour
     {
         // 左(=0)クリックされたらOnClickメソッドを呼び出し
         if (Input.GetMouseButtonDown(0)) OnClick();
+    }
+    
+    //テキストファイルを読み込む
+    private string LoadTextFile(string fname)
+    {
+        TextAsset textasset = Resources.Load<TextAsset>(fname);
+        return textasset.text.Replace("\n", "").Replace("\r", "");
+    }
+
+    //パラメーターからboolを取得する
+    private bool ParameterToBool(string parameter)
+    {
+        string p = parameter.Replace(" ", "");
+        return p.Equals("true") || p.Equals("TRUE");
     }
     
     //立ち絵の設定
@@ -150,6 +169,13 @@ public class GameManager : MonoBehaviour
             case COMMAND_ROTATION:
                 image.GetComponent<RectTransform>().eulerAngles = ParameterToVector3(parameter);
                 break;
+            case COMMAND_ACTIVE:
+                image.gameObject.SetActive(ParameterToBool(parameter));
+                break;
+            case COMMAND_DELETE:
+                _charaImageList.Remove(image);
+                Destroy(image.gameObject);
+                break;
         }
     }
     
@@ -218,7 +244,6 @@ public class GameManager : MonoBehaviour
 
     private void ReadLine(string text)
     {
-        // 最初が「!」だったら
         if (text[0].Equals(SEPARATE_COMMAND))
         {
             ReadCommand(text);
@@ -228,7 +253,12 @@ public class GameManager : MonoBehaviour
         string[] ts = text.Split(SEPARATE_MAIN_START);
         string name = ts[0];
         string main = ts[1].Remove(ts[1].LastIndexOf(SEPARATE_MAIN_END));
-        nameText.text = name;
+        if (name.Equals("")) nameText.transform.parent.gameObject.SetActive(false);
+        else
+        {
+            nameText.text = name;
+            nameText.transform.parent.gameObject.SetActive(true);
+        }
         mainText.text = "";
         _charQueue = SeparateString(main);
         StartCoroutine(ShowChars(captionSpeed));
