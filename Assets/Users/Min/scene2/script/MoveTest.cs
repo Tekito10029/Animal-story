@@ -21,6 +21,8 @@ public class MoveTest : MonoBehaviour
     [Header("Rock")]
     public bool RockFlag = false;
     
+    private string enemyTag = "Enemy";
+    
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
@@ -35,14 +37,14 @@ public class MoveTest : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.5f, 0.4710938f, 1);
+                this.transform.Translate(-0.05f, 0.0f, 0.0f);
+                transform.localScale = new Vector3(-1f, 1.0f, 1);
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.5f, 0.4710938f, 1);
+                this.transform.Translate(0.05f, 0.0f, 0.0f);
+                transform.localScale = new Vector3(1f, 1.0f, 1);
             }
         }
 
@@ -78,29 +80,33 @@ public class MoveTest : MonoBehaviour
 
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "HomeApp")
-        {
+        if (collision.gameObject.tag == enemyTag)
+        {   
+            Debug.Log("touch");
             touchFlag = true;
             HpCanvas.SetActive(true);
         } 
+        
         if(collision.gameObject.tag == "rock")
         {
             RockFlag =  true;
         }
+        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnCollisionExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "HomeApp")
+        if (collision.gameObject.tag == enemyTag)
         {
             touchFlag = false;
+            Debug.Log("touching");
         }
         if(collision.gameObject.tag == "rock")
         {
             RockFlag = false;
         }
 
-    }
+    }*/
 }
