@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -6,6 +7,16 @@
 /contentModel.xml
 /projectSettingsUpdater.xml
 /.idea.Animal-story.iml
+=======
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/modules.xml
+/.idea.Animal-story.iml
+/projectSettingsUpdater.xml
+>>>>>>> 38b987d4bf352853c05a661f2a3497ac1f211307
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
