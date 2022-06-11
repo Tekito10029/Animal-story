@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RukaMove : MonoBehaviour
+public class RukaMove2 : MonoBehaviour
 {
-   Rigidbody2D rigid2D;
-   private int Applecount = 0;
-   private int Inosisichck = 0;
+    Rigidbody2D rigid2D;
+    private int Applecount = 0;
+    private int Inosisichck = 0;
     
     [Header("Ruka")]
     [SerializeField]private GameObject Ruka;
-    [Header("EnemyFollowing Script")]
-    [SerializeField]private InosisiMove EnemyCon;
-    
     
     [Header("Player Move Check")]
     public bool playerMove = false;
+    
     [Header("Check to Inosisi")]
     public bool touchFlag = false;
+    
     [Header("Rock")]
     public bool RockFlag = false;
+    
     public bool Apple = false;
     public bool Inosisi = false;
+
+    public InosisiMove2 inosisiMove2;
+    // Start is called before the first frame update
     void Start()
     {
         //Rigitbody取得
@@ -31,8 +34,25 @@ public class RukaMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        //move();
+        //inosisimv();
+        //rockdest();
         
+        
+        if (Inosisi)
+        {
+            Inosisichck++;
+            Inosisi = false;
+        }
+        if (Apple)
+        {
+            Applecount++;
+            Apple = false;
+        }
+    }
+    //プレイヤー移動
+    public void move()
+    {
         if (playerMove == false)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -47,77 +67,65 @@ public class RukaMove : MonoBehaviour
                 transform.localScale = new Vector3(0.1f, 0.1f, 1);
             }
         }
-
-        if(touchFlag == true)
+    }
+    //イノシシをついてこさせる処理
+    public void inosisimv()
+    {
+        if (touchFlag == true)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Applecount >= 1)
                 {
-                    EnemyCon.isFollowing = true;
+                    inosisiMove2.isFollowing = true;
                     Applecount--;
                     Inosisi = true;
                 }
-                
             }
         }
-        /*else 
+    }
+    
+    //岩を壊す処理
+    public void rockdest()
+    {
+        if (RockFlag == true)
         {
-            HpCanvas.SetActive(false);
-        }*/   
-
-        if(RockFlag == true)
-        {
-            if(Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 if (Applecount >= 1)
                 {
                     if (Inosisichck == 1)
                     {
-                        EnemyCon.isRock = true;
+                        inosisiMove2.isRock = true;
                         //EnemyCon.isFollowing = false;
                         //StartCoroutine(rockdestroy());
-                        Destroy(EnemyCon.Target.gameObject);
+                        Destroy(inosisiMove2.Target.gameObject);
                         Applecount--;
                     }
                 }
             }
-        } 
-        if (Apple)
-        {
-            Applecount++;
-            Apple = false;
-        }
-
-        if (Inosisi)
-        {
-            Inosisichck++;
-            Inosisi = false;
         }
     }
+
     IEnumerator rockdestroy()
     {
         yield return new WaitForSeconds(3);
-        Destroy(EnemyCon.Target.gameObject);
-        //Destroy(EnemyCon.Inosisi.gameObject);
-        //EnemyCon.isRock = false;
+        Destroy(inosisiMove2.Target.gameObject);
     }
-    
-    //private void OnCollisionEnter2D(Collision2D collision)
+
+    //Colliderに入った時の判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Inosisi")
         {
             touchFlag = true;
         }
-
         if (collision.gameObject.tag == "rock")
         {
             RockFlag = true;
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
+    //Colliderから出た時の判定
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Inosisi")
@@ -128,8 +136,5 @@ public class RukaMove : MonoBehaviour
         {
             RockFlag = false;
         }
-
     }
-
-   
 }

@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 484471495}
   - component: {fileID: 484471498}
   - component: {fileID: 484471497}
-  - component: {fileID: 484471499}
+  - component: {fileID: 484471500}
   m_Layer: 8
   m_Name: Inosisi
   m_TagString: Inosisi
@@ -448,8 +448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484471493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67, y: -2.8, z: 5}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -67, y: -3.8, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -502,7 +502,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5414665, y: 0.92760026}
   m_EdgeRadius: 0
---- !u!114 &484471499
+--- !u!114 &484471500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,13 +511,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 484471493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cddafab850ba54a49813228d1e74cbeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 344c9fef87a4044eea01c20c5bacb107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Ruka: {fileID: 537875506}
   Inosisi: {fileID: 484471493}
   Target: {fileID: 353874244}
-  a: {fileID: 537875512}
+  a: {fileID: 0}
   speed: 4
   RockDistance: 0
   stopDistance: 6
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 537875508}
   - component: {fileID: 537875511}
   - component: {fileID: 537875510}
-  - component: {fileID: 537875512}
+  - component: {fileID: 537875513}
   m_Layer: 6
   m_Name: Ruka
   m_TagString: Player
@@ -657,7 +657,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 37.810646, y: 62.600006}
   m_EdgeRadius: 0
---- !u!114 &537875512
+--- !u!114 &537875513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -666,16 +666,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 537875506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 061c99a8952084b29b62d37d6d46e101, type: 3}
+  m_Script: {fileID: 11500000, guid: cf08994f211cf404fb2f05679ae80542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Ruka: {fileID: 537875506}
-  EnemyCon: {fileID: 484471499}
   playerMove: 0
   touchFlag: 0
   RockFlag: 0
   Apple: 0
   Inosisi: 0
+  inosisiMove2: {fileID: 484471500}
 --- !u!1 &545042874
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,8 +881,8 @@ GameObject:
   m_Component:
   - component: {fileID: 736451887}
   - component: {fileID: 736451886}
-  - component: {fileID: 736451888}
   - component: {fileID: 736451889}
+  - component: {fileID: 736451890}
   m_Layer: 0
   m_Name: Apple (1)
   m_TagString: Untagged
@@ -957,21 +957,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &736451888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736451885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e88cb2cb222a4fd883c6369501d0418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AppleCount: {fileID: 537875512}
-  cou: 1
-  tuch: 0
 --- !u!61 &736451889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -998,6 +983,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 5.671997}
   m_EdgeRadius: 0
+--- !u!114 &736451890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736451885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e621d2e82bcc49e29b87dac3b8c1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppleCount: {fileID: 537875513}
+  cou: 1
+  AppleCounter: {fileID: 537875513}
 --- !u!1 &744591125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 1167910502}
   - component: {fileID: 1167910500}
   - component: {fileID: 1167910501}
+  - component: {fileID: 1167910503}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1250,6 +1251,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167910503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167910499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2865856eb114881a67080ac397599d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rukaMove2: {fileID: 537875513}
+  inosisiMove2: {fileID: 484471500}
+  appleScript2: {fileID: 1524751388}
 --- !u!1 &1195120910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,8 +1343,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1524751385}
   - component: {fileID: 1524751384}
-  - component: {fileID: 1524751387}
   - component: {fileID: 1524751386}
+  - component: {fileID: 1524751388}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -1429,7 +1445,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 6.154662}
   m_EdgeRadius: 0
---- !u!114 &1524751387
+--- !u!114 &1524751388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1438,12 +1454,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524751383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e88cb2cb222a4fd883c6369501d0418, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e621d2e82bcc49e29b87dac3b8c1429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AppleCount: {fileID: 537875512}
+  AppleCount: {fileID: 537875513}
   cou: 1
-  tuch: 0
+  AppleCounter: {fileID: 537875513}
 --- !u!1 &1678831111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678831111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -78.617294, y: -0.03918004, z: -5}
+  m_LocalPosition: {x: -79.99992, y: -0.039170027, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1713,7 +1729,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2162697, y: 1}
+    m_SensorSize: {x: 1.9078498, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
