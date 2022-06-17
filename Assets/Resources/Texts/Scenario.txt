@@ -1,21 +1,34 @@
-!background_sprite="background_sprite1"
-!charaimg_sprite="polygon"="background_sprite2"
-!charaimg_size="polygon"="500, 500, 1"
-!charaimg_active="polygon"="false"
-
-&ルカ「Hello,World!」
+&みにに「Hello,World!」
 
 &!charaimg_active="polygon"="true"
+!charaimg_anim="polygon"="anim,0,1,EaseInOut%255,255,255,0%1000,1000,0%1000,500,0"
 
-&イノシシ「これはテキスト表示のサンプルです」
+&みにに「これはテキスト表示のサンプルです」
 
-&!charaimg_active="polygon"="false"
+&!charaimg_active="polygon"="true"
 !background_sprite="background_sprite2"
 !background_color="255,0,255"
-!charaimg_pos="polygon"="-500, 500, 0"
+!charaimg_anim="polygon"="anim,,,Replay"
 
-&ハクチョウ「こんにちは！」
+&名無し「こんにちは！」
+&!select_text="NEXT1"="こんにちは"
+!select_text="NEXT2"="こんばんは"
+!select_text="NEXT3"="おはようございます"
+&!jump_to="NEXT1"
 
-&!charaimg_delete="polygon"=""
+#END&
+!charaimg_delete="polygon"=""
 
 &「ポリゴンを削除しました」
+
+#NEXT1&
+「こんにちはを選んだ」
+&!jump_to="END"
+
+#NEXT2&
+「こんばんはを選んだ」
+&!jump_to="END"
+
+#NEXT3&
+「おはようございますを選んだ」
+&!jump_to="END"
