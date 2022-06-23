@@ -9,22 +9,33 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Text mainText;
-    [SerializeField] private Text nameText;
-    [SerializeField] private float captionSpeed = 0.2f;
-    [SerializeField] private GameObject nextPageIcon;
-    [SerializeField] private Image backgroundImage;
-    [SerializeField] private string spritesDirectory = "Sprites/";
-    [SerializeField] private GameObject characterImages;
-    [SerializeField] private string prefabsDirectory = "Prefabs/";
+    [SerializeField]
+    private Text mainText;
+    [SerializeField]
+    private Text nameText;
+    [SerializeField]
+    private float captionSpeed = 0.2f;
+    [SerializeField]
+    private GameObject nextPageIcon;
+    [SerializeField]
+    private Image backgroundImage;
+    [SerializeField]
+    private string spritesDirectory = "Sprites/";
+    [SerializeField]
+    private GameObject characterImages;
+    [SerializeField]
+    private string prefabsDirectory = "Prefabs/";
     private List<Image> _charaImageList = new List<Image>();
-    [SerializeField] private string animationsDirectory = "Animations/";
-    [SerializeField] private string overrideAnimationClipName = "Clip";
-    [SerializeField] private string textFile = "Texts/Scenario";
+    [SerializeField]
+    private string animationsDirectory = "Animations/";
+    [SerializeField]
+    private string overrideAnimationClipName = "Clip";
+    [SerializeField]
+    private string textFile = "Texts/Scenario";
     [SerializeField]
     private GameObject selectButtons;
     private List<Button> _selectButtonList = new List<Button>();
-    
+
     private string _text = "";
 
     private const char SEPARATE_COMMAND = '!';
@@ -42,15 +53,16 @@ public class GameManager : MonoBehaviour
     private const char COMMAND_SEPARATE_ANIM = '%';
     private const string COMMAND_ANIM = "_anim";
     private const string COMMAND_JUMP = "jump_to";
+    private const string COMMAND_WAIT_TIME = "wait";
     private const string COMMAND_SELECT = "select";
     private const string COMMAND_TEXT = "_text";
     
     private const char SEPARATE_MAIN_START = '「';
     private const char SEPARATE_MAIN_END = '」';
     private const char SEPARATE_PAGE = '&';
-    
-    private const string SELECT_BUTTON_PREFAB = "SelectButton";
 
+    private const string SELECT_BUTTON_PREFAB = "SelectButton";
+    
     private Queue<string> _pageQueue;
 
     private Queue<char> _charQueue;
@@ -58,6 +70,8 @@ public class GameManager : MonoBehaviour
     private const char SEPARATE_SUBSCENE = '#';
     private Dictionary<string, Queue<string>> _subScenes =
         new Dictionary<string, Queue<string>>();
+
+    private float _waitTime = 0;
     
     //初期化する
     private void Init()
@@ -91,6 +105,24 @@ public class GameManager : MonoBehaviour
         TextAsset textasset = Resources.Load<TextAsset>(fname);
         return textasset.text.Replace("\n", "").Replace("\r", "");
     }
+    
+    //待機時間を設定する
+    private void SetWaitTime(string parameter)
+    {
+        parameter = parameter.Substring(parameter.IndexOf('"') + 1, parameter.LastIndexOf('"') - parameter.IndexOf('"') - 1);
+        _waitTime = float.Parse(parameter);
+    }
+    
+    
+//次の読み込みを待機するコルーチン
+    private IEnumerator WaitForCommand()
+    {
+        yield return new WaitForSeconds(_waitTime);
+        _waitTime = 0;
+        ShowNextPage();
+        yield break;
+    }
+
 
     //パラメーターからboolを取得する
     private bool ParameterToBool(string parameter)
@@ -149,23 +181,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    
-    //選択肢の設定
-    private void SetSelectButton(string name, string cmd, string parameter)
-    {
-        cmd = cmd.Replace(COMMAND_SELECT, "");
-        name = name.Substring(name.IndexOf('"') + 1, name.LastIndexOf('"') - name.IndexOf('"') - 1);
-        Button button = _selectButtonList.Find(n => n.name == name);
-        if (button == null)
-        {
-            button = Instantiate(Resources.Load<Button>(prefabsDirectory + SELECT_BUTTON_PREFAB), selectButtons.transform);
-            button.name = name;
-            button.onClick.AddListener(() => SelectButtonOnClick(name));
-            _selectButtonList.Add(button);
-        }
-        SetImage(cmd, parameter, button.image);
-    }
-
     //スプライトをファイルから読み出し、インスタンス化する
     private Sprite LoadSprite(string name)
     {
@@ -191,6 +206,9 @@ public class GameManager : MonoBehaviour
         parameter = parameter.Substring(parameter.IndexOf('"') + 1, parameter.LastIndexOf('"') - parameter.IndexOf('"') - 1);
         switch (cmd)
         {
+            case COMMAND_TEXT:
+                image.GetComponentInChildren<Text>().text = parameter;
+                break;
             case COMMAND_SPRITE:
                 image.sprite = LoadSprite(parameter);
                 break;
@@ -268,6 +286,7 @@ public class GameManager : MonoBehaviour
     {
         StopCoroutine(ShowChars(captionSpeed));
         while (OutputChar()) ;
+        _waitTime = 0;
         nextPageIcon.SetActive(true);
     }
 
@@ -415,7 +434,7 @@ public class GameManager : MonoBehaviour
         _charQueue = SeparateString(main);
         StartCoroutine(ShowChars(captionSpeed));
     }
-    
+
     //選択肢がクリックされた
     private void SelectButtonOnClick(string label)
     {
@@ -423,6 +442,22 @@ public class GameManager : MonoBehaviour
         _selectButtonList.Clear();
         JumpTo('"' + label + '"');
         ShowNextPage();
+    }
+    
+    //選択肢の設定
+    private void SetSelectButton(string name, string cmd, string parameter)
+    {
+        cmd = cmd.Replace(COMMAND_SELECT, "");
+        name = name.Substring(name.IndexOf('"') + 1, name.LastIndexOf('"') - name.IndexOf('"') - 1);
+        Button button = _selectButtonList.Find(n => n.name == name);
+        if (button == null)
+        {
+            button = Instantiate(Resources.Load<Button>(prefabsDirectory + SELECT_BUTTON_PREFAB), selectButtons.transform);
+            button.name = name;
+            button.onClick.AddListener(() => SelectButtonOnClick(name));
+            _selectButtonList.Add(button);
+        }
+        SetImage(cmd, parameter, button.image);
     }
 
     //文字送りするコルーチン
