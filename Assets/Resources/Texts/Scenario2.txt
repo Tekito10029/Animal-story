@@ -1,0 +1,9 @@
+#START&
+!foreground_color="0,0,0"
+!foreground_anim="fadein,0,2,%0,0,0,0%%"
+!wait="2"
+!se_sound="sesample"="se1"
+!se_priority="sesample"="150"
+!se_play="sesample"=""
+
+&「シーンが切り替わりました！」
