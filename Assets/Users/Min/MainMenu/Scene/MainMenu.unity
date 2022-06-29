@@ -303,7 +303,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067599694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Gamescenechange, Assembly-CSharp
         m_MethodName: OpenScene
         m_Mode: 3
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067599694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Gamescenechange, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef821f74beaaa3940854ce4409ba7dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1875565410}
-  rb: {fileID: 1875565409}
+  collider: {fileID: 1140733800}
+  rb: {fileID: 1140733799}
 --- !u!50 &1140733799
 Rigidbody2D:
   serializedVersion: 4
@@ -876,8 +876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef821f74beaaa3940854ce4409ba7dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1875565410}
-  rb: {fileID: 1875565409}
+  collider: {fileID: 1495314095}
+  rb: {fileID: 1495314094}
 --- !u!50 &1495314094
 Rigidbody2D:
   serializedVersion: 4
@@ -1400,7 +1400,6 @@ GameObject:
   - component: {fileID: 2067599693}
   - component: {fileID: 2067599692}
   - component: {fileID: 2067599691}
-  - component: {fileID: 2067599694}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1474,15 +1473,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2067599694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067599690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43346e1d83ea96498e0d77f569fb4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -11,8 +11,11 @@ public class EnemyFollowing : MonoBehaviour
     [Header("Enemy")]
     [SerializeField]public GameObject enemy;
 
-    [Header("Rock")]
+    [Header("Target To Destroy")]
     [SerializeField]public Transform Target;
+
+    [Header("Rock")]
+    [SerializeField]public Transform Rock;
 
     [Header("Player Script")]
     public MoveTest mt;
