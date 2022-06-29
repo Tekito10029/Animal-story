@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Users/Tokui/Scenes/NextScene.unity
+    guid: 71b9fc5b7efd9d44490b8311b9f61adf
   m_configObjects: {}

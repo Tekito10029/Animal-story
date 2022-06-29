@@ -1,7 +1,6 @@
 #START&
 !foreground_color="0,0,0"
 !foreground_anim="fadein,0,2,%0,0,0,0%%"
-!wait="2"
 !background_sprite="background_sprite1"
 !charaimg_sprite="polygon"="background_sprite2"
 !charaimg_size="polygon"="500, 500, 1"
@@ -12,7 +11,15 @@
 !se_priority="sesample"="150"
 !se_play="sesample"=""
 
-&みにに「Hello,World!」
+&ルカ「Hello,World!」
+&イノシシ「Hello,World!」
+&ルカ「Hello,World!」
+&イノシシ「Hello,World!」
+&ルカ「Hello,World!」
+&イノシシ「Hello,World!」
+&ルカ「Hello,World!」
+&イノシシ「Hello,World!」
+&ルカ「Hello,World!」
 
 &!charaimg_active="polygon"="true"
 !charaimg_anim="polygon"="anim,0,1,EaseInOut%255,255,255,0%1000,1000,0%1000,500,0"
@@ -22,33 +29,14 @@
 
 &!charaimg_active="polygon"="true"
 !background_sprite="background_sprite2"
-!background_color="255,0,255"
+!background_color="0,0,255"
 !charaimg_anim="polygon"="anim,,,Replay"
-!wait="5"
 
 &名無し「こんにちは！」
-&!select_text="NEXT1"="こんにちは"
-!select_text="NEXT2"="こんばんは"
-!select_text="NEXT3"="おはようございます"
-&!jump_to="NEXT1"
 
-#END&
 !charaimg_delete="polygon"=""
 !bgm_mute="false"
 &「ポリゴンを削除しました」
 &!foreground_anim="fadeout,0,2,%0,0,0%%"
-!wait="2"
-
-#NEXT1&
-!se_play="sesample"=""
-&「こんにちはを選んだ」
-&!jump_to="END"
-
-#NEXT2&
-!bgm_fade="5,0"
-&「こんばんはを選んだ」
-&!jump_to="END"
-
-#NEXT3&
-「おはようございますを選んだ」
-&!jump_to="END"
+!wait="2"&
+!scene="NextScene"

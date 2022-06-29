@@ -1,2 +1,3 @@
 BubblTextScene 文字数可変の吹き出しテキストボックス
-ScenarioScene キャラの名前と文の切り分け、背景とキャラクターの表示
+
+ScenarioScene キャラの名前と文の切り分け、背景とキャラクターの表示　本チャンのやつ
