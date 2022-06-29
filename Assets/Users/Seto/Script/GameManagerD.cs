@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagerD : MonoBehaviour
 {
     //RukaMove2(Script)を取得
     public RukaMove2 rukaMove2;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         //InosisiMove2(Script)のinosisifollowを実行する
         inosisiMove2.inosisifollow();
         //InosisiMove2(Script)のrockbrを実行する
-        inosisiMove2.rockbr();
+        //inosisiMove2.rockbr();
         //RukaMove2(Script)のrockdestを実行する
         rukaMove2.rockdest();
         //AppleScript2(Script)のappledestを実行する

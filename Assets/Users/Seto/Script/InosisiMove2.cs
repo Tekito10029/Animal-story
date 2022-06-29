@@ -63,7 +63,7 @@ public class InosisiMove2 : MonoBehaviour
         }
     }
     //岩を壊す処理
-    public void rockbr()
+    /*public void rockbr()
     {
         if(isRock)
         {
@@ -74,5 +74,5 @@ public class InosisiMove2 : MonoBehaviour
                     (transform.position,Target.position, speed * Time.deltaTime);
             }   
         }
-    }
+    }*/
 }

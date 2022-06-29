@@ -43,13 +43,13 @@ public class MoveTest : MonoBehaviour
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
-<<<<<<< HEAD
+
                 this.transform.Translate(0.1f, 0.0f, 0.0f); 
                 transform.localScale = new Vector3(0.5f, 0.4710938f, 1);
-=======
+
                 this.transform.Translate(0.05f, 0.0f, 0.0f);
                 transform.localScale = new Vector3(1f, 1.0f, 1);
->>>>>>> 98074d4df8cfad0d5dafea7022a30f6276c072f0
+
             }
         }
 

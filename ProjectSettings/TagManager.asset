@@ -3,28 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - HomeApp
-  - Item
-  - floar
-  - rock
-  - rocking
-  - Inosisi
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
-  - Player
-  - Ground
-<<<<<<< HEAD
-  - Inosisi
-=======
-  - Follow
->>>>>>> 98074d4df8cfad0d5dafea7022a30f6276c072f0
+  - 
+  - 
+  - 
   - 
   - 
   - 
