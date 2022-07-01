@@ -187,13 +187,13 @@ public class ScenarioManager : MonoBehaviour
     */
     private void MouseScroll()
     {
-        if (backLog.gameObject.activeSelf && Input.mouseScrollDelta.y > 0 && backLog.verticalNormalizedPosition <= 0)
+        if (backLog.gameObject.activeSelf && Input.GetKey(KeyCode.D) && backLog.verticalNormalizedPosition <= 0)
         {
             StopAllAnimation(false);
             backLog.gameObject.SetActive(false);
         }
 
-        if (!backLog.gameObject.activeSelf && Input.mouseScrollDelta.y < 0)
+        if (!backLog.gameObject.activeSelf && Input.GetKey(KeyCode.B))
         {
             StopAllAnimation(true);
             backLog.verticalNormalizedPosition = 0;
