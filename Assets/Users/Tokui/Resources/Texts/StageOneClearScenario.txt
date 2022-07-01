@@ -68,6 +68,9 @@
 
 &{それを聞いたルカは
 早速洞窟へ向かうことにするのでした}
+&!jump_to="END"
 
+#END&
+!foreground_anim="fadeout,0,2,%0,0,0%%"
 !wait ="2"&
 !scene="NextScene"
