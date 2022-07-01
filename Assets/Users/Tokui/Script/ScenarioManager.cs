@@ -17,8 +17,8 @@ public class ScenarioManager : MonoBehaviour
     private const char SEPARATE_SUBSCENE = '#';
     private const char SEPARATE_PAGE = '&';
     private const char SEPARATE_COMMAND = '!';
-    private const char SEPARATE_MAIN_START = '「';
-    private const char SEPARATE_MAIN_END = '」';
+    private const char SEPARATE_MAIN_START = '{';
+    private const char SEPARATE_MAIN_END = '}';
     private const char OUTPUT_PARAM = '"';
     private const char OUTPUT_GLOBAL_PARAM = '$';
 
