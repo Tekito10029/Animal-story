@@ -183,7 +183,7 @@ public class ScenarioManager : MonoBehaviour
     }
 
     /**
-    * スクロールした時の処理
+    * バックログの表示、非表示
     */
     private void MouseScroll()
     {
