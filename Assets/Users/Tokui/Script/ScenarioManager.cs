@@ -72,7 +72,6 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField] private GameObject nextPageIcon;
     [SerializeField] private string spritesDirectory = "Sprites/";
     [SerializeField] private string prefabsDirectory = "Prefabs/";
-    [SerializeField] private string audioClipsDirectory = "AudioClips/";
     [SerializeField] private string textFile = "Texts/Scenario";
     [SerializeField] private string animationsDirectory = "Animations/";
     [SerializeField] private string overrideAnimationClipName = "Clip";
@@ -235,22 +234,6 @@ public class ScenarioManager : MonoBehaviour
         _waitTime = 0;
         ShowNextPage();
         yield break;
-    }
-
-    /**
-    * 音のフェードを行うコルーチン
-    */
-    private IEnumerator FadeSound(AudioSource audio, float time, float volume)
-    {
-        float vo = (volume - audio.volume) / (time / Time.deltaTime);
-        bool isOut = audio.volume > volume;
-        while ((!isOut && audio.volume < volume) || (isOut && audio.volume > volume))
-        {
-            audio.volume += vo;
-            yield return null;
-        }
-
-        audio.volume = volume;
     }
 
     /**

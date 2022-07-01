@@ -28,6 +28,6 @@
  
 &{こうして　ルカは動物たちを救うために
  ながい冒険にでるのでした}
-!wait="2"
-&
-!scene="NextScene"
+
+!wait="2"&
+!scene="TestScene"
