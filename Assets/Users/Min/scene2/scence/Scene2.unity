@@ -571,7 +571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &738828181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -934,7 +934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200940261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.4, y: -1.4, z: 0}
+  m_LocalPosition: {x: -0.65, y: -1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1751,7 +1751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1902932022
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2166,6 +2166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1750535865}
     m_Modifications:
+    - target: {fileID: 2576041475364150616, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2576041475449488400, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2253,6 +2257,30 @@ PrefabInstance:
     - target: {fileID: 2576041475449488412, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475579867138, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475607734282, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 123.9266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475607734282, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -185.60864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475607734284, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475607734284, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576041475607734284, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
