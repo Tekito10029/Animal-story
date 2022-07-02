@@ -22,6 +22,8 @@ public class GameManagerD : MonoBehaviour
         //inosisiMove2.rockbr();
         //RukaMove2(Script)のrockdestを実行する
         rukaMove2.rockdest();
+        //RukaMove2(Script)のbigrockdestを実行する
+        rukaMove2.bigrockdest();
         //AppleScript2(Script)のappledestを実行する
         //appleScript2.appledest();
     }

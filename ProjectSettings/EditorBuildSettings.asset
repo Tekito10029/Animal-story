@@ -6,20 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Users/Min/MainMenu/Scene/MainMenu.unity
-    guid: 8f58530078b47304fbee2be6a3a9f952
-  - enabled: 1
     path: Assets/Users/Tokui/Scenes/ScenarioScene.unity
     guid: 0795d645ce75e20418525388339980f7
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/Game Scene.unity
-    guid: c92189ddb8b5848f0b172097d38ecd7f
-=======
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Users/Tokui/Scenes/NextScene.unity
-    guid: 71b9fc5b7efd9d44490b8311b9f61adf
->>>>>>> 76443371ac40f0f391d2a917b9ad3a88b9320be6
   m_configObjects: {}

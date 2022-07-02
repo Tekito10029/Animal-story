@@ -11,8 +11,10 @@ public class InosisiMove2 : MonoBehaviour
     [SerializeField]public GameObject Inosisi;
     [Header("Rock")]
     [SerializeField]public Transform Target;
+    [Header("BigRock")]
+    [SerializeField]public Transform Target2;
     [Header("Player Script")]
-    public RukaMove a;
+    public RukaMove2 a;
     [Header("Enemy Following Speed")]
     public float speed = 3.0f; 
     [Header("Between Enemy and Rock Distance")]
