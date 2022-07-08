@@ -4,22 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - HomeApp
-  - Item
-  - floar
   - rock
-  - rocking
+  - Inosisi
+  - Item
+  - bigrock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
-  - Player
-  - Ground
-  - Follow
+  - 
+  - 
+  - 
   - 
   - 
   - 
