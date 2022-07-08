@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 719040124}
   - component: {fileID: 719040123}
   - component: {fileID: 719040122}
+  - component: {fileID: 719040125}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -506,6 +507,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719040125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719040121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e621d2e82bcc49e29b87dac3b8c1429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AppleCount: {fileID: 725769179}
+  cou: 1
+  AppleCounter: {fileID: 725769179}
 --- !u!1 &725769174
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +562,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!61 &725769176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -649,15 +665,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 725769174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d38df564673ab5449a7f020be075376, type: 3}
+  m_Script: {fileID: 11500000, guid: cf08994f211cf404fb2f05679ae80542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 725769174}
-  EnemyCon: {fileID: 0}
-  HpCanvas: {fileID: 0}
+  Ruka: {fileID: 725769174}
   playerMove: 0
   touchFlag: 0
   RockFlag: 0
+  Apple: 0
+  Inosisi: 0
+  inosisiMove2: {fileID: 1636582119}
 --- !u!1 &735617483
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +931,7 @@ GameObject:
   - component: {fileID: 962040939}
   - component: {fileID: 962040940}
   - component: {fileID: 962040941}
+  - component: {fileID: 962040942}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -987,6 +1005,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &962040942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962040938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2865856eb114881a67080ac397599d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rukaMove2: {fileID: 725769179}
+  inosisiMove2: {fileID: 1636582119}
+  appleScript2: {fileID: 719040125}
 --- !u!1 &1008494705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1082,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2257426, y: 1}
+    m_SensorSize: {x: 1.9115646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1152,7 +1185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045577458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0015879513, y: -0.15458, z: -10}
+  m_LocalPosition: {x: -0.0011714157, y: -0.15459001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1617,7 +1650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509543445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 2, z: 0}
+  m_LocalPosition: {x: 8, y: 2, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1636,9 +1669,10 @@ GameObject:
   - component: {fileID: 1636582115}
   - component: {fileID: 1636582118}
   - component: {fileID: 1636582117}
+  - component: {fileID: 1636582119}
   m_Layer: 0
-  m_Name: "\u3044\u306E\u3057\u3057\uFF11"
-  m_TagString: Untagged
+  m_Name: Iosisi
+  m_TagString: Inosisi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1703,7 +1737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636582114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: -3, z: 0}
+  m_LocalPosition: {x: 14, y: -3, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1730,7 +1764,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!61 &1636582118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1757,6 +1791,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1636582119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636582114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344c9fef87a4044eea01c20c5bacb107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ruka: {fileID: 725769174}
+  Inosisi: {fileID: 1636582114}
+  Target: {fileID: 735617485}
+  a: {fileID: 725769179}
+  speed: 5
+  RockDistance: 0
+  stopDistance: 6
+  isFollowing: 0
+  isRock: 0
 --- !u!1 &2063615192
 GameObject:
   m_ObjectHideFlags: 0

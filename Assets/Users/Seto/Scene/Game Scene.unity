@@ -406,8 +406,7 @@ MonoBehaviour:
   Ruka: {fileID: 537875506}
   Inosisi: {fileID: 484471493}
   Target: {fileID: 353874244}
-  Target2: {fileID: 1138361240}
-  a: {fileID: 0}
+  a: {fileID: 537875513}
   speed: 4
   RockDistance: 0
   stopDistance: 6
@@ -5375,7 +5374,6 @@ MonoBehaviour:
   playerMove: 0
   touchFlag: 0
   RockFlag: 0
-  BigRockFlag: 0
   Apple: 0
   Inosisi: 0
   inosisiMove2: {fileID: 484471500}
@@ -6537,7 +6535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678831111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -78.56993, y: -0.03918004, z: -5}
+  m_LocalPosition: {x: -79.999916, y: -0.039170027, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6728,7 +6726,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2257426, y: 1}
+    m_SensorSize: {x: 1.9115646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

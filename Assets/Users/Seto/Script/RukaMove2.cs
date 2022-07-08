@@ -20,12 +20,10 @@ public class RukaMove2 : MonoBehaviour
     
     [Header("Rock")]
     public bool RockFlag = false;
-
-    [Header("BigRock")] 
-    public bool BigRockFlag = false;
     
     public bool Apple = false;
     public bool GoldApple = false;
+    
     public bool Inosisi = false;
 
     public InosisiMove2 inosisiMove2;
@@ -55,6 +53,7 @@ public class RukaMove2 : MonoBehaviour
             Applecount++;
             Apple = false;
         }
+
         if (GoldApple)
         {
             GoldApplecount++;
@@ -117,26 +116,6 @@ public class RukaMove2 : MonoBehaviour
             }
         }
     }
-    
-    //大きい岩を壊す処理
-    public void bigrockdest()
-    {
-        if (BigRockFlag == true)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                if (GoldApplecount >= 1)
-                {
-                    if (Inosisichck == 1)
-                    {
-                        Destroy(inosisiMove2.Target2.gameObject);
-                        GoldApplecount--;
-                    }
-                }
-            }
-        }
-    }
-
     IEnumerator rockdestroy()
     {
         yield return new WaitForSeconds(3);
@@ -154,10 +133,6 @@ public class RukaMove2 : MonoBehaviour
         {
             RockFlag = true;
         }
-        if (collision.gameObject.tag == "bigrock")
-        {
-            BigRockFlag = true;
-        }
     }
     //Colliderから出た時の判定
     private void OnTriggerExit2D(Collider2D collision)
@@ -169,10 +144,6 @@ public class RukaMove2 : MonoBehaviour
         if(collision.gameObject.tag == "rock")
         {
             RockFlag = false;
-        }
-        if (collision.gameObject.tag == "bigrock")
-        {
-            BigRockFlag = false;
         }
     }
     //エフェクト
