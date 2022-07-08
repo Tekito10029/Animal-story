@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Goal
-  - Ruka
+  - rock
+  - Inosisi
+  - Item
+  - bigrock
   layers:
   - Default
   - TransparentFX
