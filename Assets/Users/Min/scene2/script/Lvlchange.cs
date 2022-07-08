@@ -15,21 +15,23 @@ public class Lvlchange : MonoBehaviour
     [SerializeField]
     private Transform _spawnPoint;
     [SerializeField]
-    private GameObject SceneLoadText;
-   
+    private Transform _spawnPoint1;
+    //[SerializeField]
+    // private GameObject SceneLoadText;
+
     [SerializeField]
     private LevelConnection _connection;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         ChangeTrue = true;
-        SceneLoadText.SetActive(true);
+        //SceneLoadText.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         ChangeTrue = false;
-        SceneLoadText.SetActive(false);
+        //SceneLoadText.SetActive(false);
     }
 
     private void Start()
@@ -37,6 +39,7 @@ public class Lvlchange : MonoBehaviour
        if(_connection == LevelConnection.ActiveConnection)
         {
             FindObjectOfType<MoveTest>().transform.position = _spawnPoint.position;
+            FindObjectOfType<EnemyFollowing>().transform.position = _spawnPoint1.position;
         }
     }
 
