@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Users/Tokui/Scenes/ScenarioScene.unity
+    path: Assets/Users/Min/MainMenu/Scene/MainMenu.unity
+    guid: 8f58530078b47304fbee2be6a3a9f952
+  - enabled: 1
+    path: Assets/Users/Tokui/Scenes/PrologueScene.unity
     guid: 0795d645ce75e20418525388339980f7
+  - enabled: 1
+    path: Assets/Users/Seto/Scene/S1Mp1.unity
+    guid: cfb67407142ba461a8411569066c8869
+  - enabled: 1
+    path: Assets/Users/Seto/Scene/S1Mp3.unity
+    guid: 098bbf76999d047d09284a9ae179419e
+  - enabled: 1
+    path: Assets/Users/Tokui/Scenes/StageOneClearScenario.unity
+    guid: 9e06fdaeec54f5f429d2b14caf19e593
   m_configObjects: {}
