@@ -218,8 +218,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 839152309}
   - component: {fileID: 839152308}
+=======
+  - component: {fileID: 880944802}
+  - component: {fileID: 880944801}
+  - component: {fileID: 880944800}
+  - component: {fileID: 880944803}
+>>>>>>> b7a25685ff447f8aafb932f380bd8c235c7ab327
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -287,13 +294,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839152307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 101.66, y: 0, z: 10}
   m_LocalScale: {x: 0.96, y: 0.96, z: 1}
+=======
+  m_LocalPosition: {x: 26.6, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> b7a25685ff447f8aafb932f380bd8c235c7ab327
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880944803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880944799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9bd22dac763bc4b921298c3cd526f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: StageOneClearScenario
+  FadeTime: 0.5
 --- !u!1 &923420838
 GameObject:
   m_ObjectHideFlags: 0
