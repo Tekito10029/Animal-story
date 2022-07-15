@@ -304,9 +304,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Gamescenechange, Assembly-CSharp
+        m_MethodName: OpenScene
+=======
       - m_Target: {fileID: 166011148}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: SceneC
+>>>>>>> origin/Seto
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -638,8 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef821f74beaaa3940854ce4409ba7dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1875565410}
-  rb: {fileID: 1875565409}
+  collider: {fileID: 1140733800}
+  rb: {fileID: 1140733799}
 --- !u!50 &1140733799
 Rigidbody2D:
   serializedVersion: 4
@@ -889,8 +895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef821f74beaaa3940854ce4409ba7dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1875565410}
-  rb: {fileID: 1875565409}
+  collider: {fileID: 1495314095}
+  rb: {fileID: 1495314094}
 --- !u!50 &1495314094
 Rigidbody2D:
   serializedVersion: 4
