@@ -69,11 +69,11 @@ public class EnemyFollowing : MonoBehaviour
             
             if (player.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-2, 2, 2);
             }
             else if (player.transform.position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(2, 2, 2);
             }
         }
 
