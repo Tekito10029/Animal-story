@@ -5,9 +5,11 @@ public class ItemGet : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            transform.position = ItemInventory.instance.ItemSlot.transform.position;
-        }
+        //message_window.SetActive(true);
+        //if (collision.CompareTag("Player")) 
+        /*{
+            //transform.position = ItemInventory.instance.ItemSlot.transform.position;
+            message_window.SetActive(true);
+        }*/
     }
 }

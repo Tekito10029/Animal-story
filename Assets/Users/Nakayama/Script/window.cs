@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class window : MonoBehaviour
 {
-    [SerializeField] GameObject text;
-
-    void Update()
+    
+    void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            text.SetActive(true);
-        }
+        Debug.Log("‚·‚è”²‚¯‚Ä‚¢‚é");
     }
 }
