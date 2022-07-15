@@ -76,6 +76,7 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField] private string animationsDirectory = "Animations/";
     [SerializeField] private string overrideAnimationClipName = "Clip";
     [SerializeField] private float captionSpeed = 0.2f;
+    [SerializeField] private KeyCode nextKey = KeyCode.X;
     [SerializeField] private KeyCode skipKey = KeyCode.S;
     [SerializeField] private float skipSpeed = 0.2f;
 
@@ -113,7 +114,7 @@ public class ScenarioManager : MonoBehaviour
     {
         PushSkipButton();
         if (_isSkip) return;
-        if (Input.GetMouseButtonDown(0)) OnClick();
+        if (Input.GetKeyDown(nextKey)) NextKey();
         if (Input.GetMouseButtonDown(1)) OnClickRight();
         MouseScroll();
     }
@@ -151,7 +152,7 @@ public class ScenarioManager : MonoBehaviour
     /**
     * クリックしたときの処理
     */
-    private void OnClick()
+    private void NextKey()
     {
         if (isStop) return;
         if (_charQueue.Count > 0)
