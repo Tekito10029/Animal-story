@@ -40,13 +40,13 @@ public class MoveTest : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
+                transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
 
