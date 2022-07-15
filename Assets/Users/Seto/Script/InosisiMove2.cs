@@ -11,6 +11,8 @@ public class InosisiMove2 : MonoBehaviour
     [SerializeField]public GameObject Inosisi;
     [Header("Rock")]
     [SerializeField]public Transform Target;
+    [Header("BigRock")]
+    [SerializeField]public Transform Target2;
     [Header("Player Script")]
     public RukaMove2 a;
     [Header("Enemy Following Speed")]
@@ -63,7 +65,7 @@ public class InosisiMove2 : MonoBehaviour
         }
     }
     //岩を壊す処理
-    public void rockbr()
+    /*public void rockbr()
     {
         if(isRock)
         {
@@ -74,5 +76,5 @@ public class InosisiMove2 : MonoBehaviour
                     (transform.position,Target.position, speed * Time.deltaTime);
             }   
         }
-    }
+    }*/
 }

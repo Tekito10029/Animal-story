@@ -33,4 +33,4 @@
 #END&
 !foreground_anim="fadeout,0,2,%0,0,0%%"
 !wait="2"&
-!scene="S1Mp1"
+!scene="GameScene"

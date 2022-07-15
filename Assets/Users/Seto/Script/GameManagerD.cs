@@ -10,8 +10,6 @@ public class GameManagerD : MonoBehaviour
     public InosisiMove2 inosisiMove2;
     //AppleScript2(Script)を取得
     public AppleScript2 appleScript2;
-    //GoldAppleScript2(Script)を取得
-    public GoldAppleScript2 goaldAppleScript2;
     void Update()
     {
         //RukaMove2(Script)のmoveを実行する
@@ -21,9 +19,11 @@ public class GameManagerD : MonoBehaviour
         //InosisiMove2(Script)のinosisifollowを実行する
         inosisiMove2.inosisifollow();
         //InosisiMove2(Script)のrockbrを実行する
-        inosisiMove2.rockbr();
+        //inosisiMove2.rockbr();
         //RukaMove2(Script)のrockdestを実行する
         rukaMove2.rockdest();
+        //RukaMove2(Script)のbigrockdestを実行する
+        rukaMove2.bigrockdest();
         //AppleScript2(Script)のappledestを実行する
         //appleScript2.appledest();
     }
