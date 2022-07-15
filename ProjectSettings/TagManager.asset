@@ -4,19 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - rock
-  - Inosisi
-  - Item
-  - bigrock
+  - inosisi
+  - ruka
+  - stone
+  - textcheck
+  - stone1
+  - stone2
+  - stone3
+  - stone4
+  - stone5
+  - Teleporter
   - rocking
   - HomeApp
-  - textcheck
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - inosisi
+  - rock
+  - Ruka
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -24,13 +26,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CameraBounce
+  - Player
+  - Apple
+  - stone
+  - portal
+  - animal
+  - Flower
   - 
   - 
   - 

@@ -6,35 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Users/Seto/Scene/S1Mp1.unity
-    guid: cfb67407142ba461a8411569066c8869
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp2.unity
-    guid: 3f0914b7ad7c64a82bb178917bed53de
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp3.unity
-    guid: 098bbf76999d047d09284a9ae179419e
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp4.unity
-    guid: 4b693c5a0d5194c6e8a5c0163dc93963
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp5.unity
-    guid: 4bf533f13a80a43ec9116ccbcbd5277e
-=======
     path: Assets/Users/Min/MainMenu/Scene/MainMenu.unity
     guid: 8f58530078b47304fbee2be6a3a9f952
   - enabled: 1
     path: Assets/Users/Tokui/Scenes/PrologueScene.unity
     guid: 0795d645ce75e20418525388339980f7
   - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp1.unity
-    guid: cfb67407142ba461a8411569066c8869
-  - enabled: 1
-    path: Assets/Users/Seto/Scene/S1Mp3.unity
-    guid: 098bbf76999d047d09284a9ae179419e
+    path: Assets/Users/Min/scene2/scence/GameScene.unity
+    guid: ea935ec6deed9b04aacbe12e14d1ccbe
   - enabled: 1
     path: Assets/Users/Tokui/Scenes/StageOneClearScenario.unity
     guid: 9e06fdaeec54f5f429d2b14caf19e593
->>>>>>> b7a25685ff447f8aafb932f380bd8c235c7ab327
   m_configObjects: {}
