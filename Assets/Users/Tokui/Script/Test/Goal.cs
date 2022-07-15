@@ -9,18 +9,11 @@ public class Goal : MonoBehaviour
     [SerializeField] private string NextScene = "";
     [SerializeField] private float FadeTime = 0.5f;
 
-    private void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetMouseButton(0))
+        if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(NextScene);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ruka")
-        {
+            Debug.Log("判定");
             FadeManager.Instance.LoadScene(NextScene,FadeTime);
         }
     }
