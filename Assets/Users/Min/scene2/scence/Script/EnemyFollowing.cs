@@ -21,6 +21,8 @@ public class EnemyFollowing : MonoBehaviour
     [SerializeField]public Transform stone4;
     [Header("Rock4")]
     [SerializeField]public Transform stone5;
+    [Header("BigRock")]
+    [SerializeField]public Transform RockBig;
 
     [Header("Player Script")]
     public MoveTest mt;
@@ -40,6 +42,7 @@ public class EnemyFollowing : MonoBehaviour
     public bool isRock3 = false;
     public bool isRock4 = false;
     public bool isRock5 = false;
+    public bool BigRock = false;
     
     void Start()
     {
@@ -119,6 +122,14 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,stone5.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone5.position, speed * Time.deltaTime);
+            }   
+        }
+        if(BigRock)
+        {
+            
+            if(Vector2.Distance(transform.position,RockBig.position) > RockDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position,RockBig.position, speed * Time.deltaTime);
             }   
         }
     } 

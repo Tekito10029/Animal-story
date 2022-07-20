@@ -1262,16 +1262,18 @@ MonoBehaviour:
   stone3: {fileID: 274664477}
   stone4: {fileID: 981849625}
   stone5: {fileID: 2088731132}
+  RockBig: {fileID: 6741763793359757343}
   mt: {fileID: 1252438107}
   speed: 3
   RockDistance: 2
-  stopDistance: 3
+  stopDistance: 5
   isFollowing: 0
   isRock1: 0
   isRock2: 0
   isRock3: 0
   isRock4: 0
   isRock5: 0
+  BigRock: 0
 --- !u!1 &473848988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1734,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1168687, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1872,7 +1874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667959390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1880414, y: -29.87608, z: -10}
+  m_LocalPosition: {x: -0.29061013, y: -29.87967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3115,6 +3117,7 @@ MonoBehaviour:
   RockFlag3: 0
   RockFlag4: 0
   RockFlag5: 0
+  RockFlag6: 0
 --- !u!4 &1252438114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8690018345126826825, guid: 3ed142c7c65e3c2499b57ce20457134c, type: 3}
@@ -4675,7 +4678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2843865096702219734, guid: 6f5fef178f186ea4d9a4c86b93edd2cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.1
+      value: -11.45
       objectReference: {fileID: 0}
     - target: {fileID: 2843865096702219734, guid: 6f5fef178f186ea4d9a4c86b93edd2cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5389,6 +5392,10 @@ PrefabInstance:
     - target: {fileID: 1392120642517509874, guid: 8bffe598d7e3f964e8ff1cbde703876c, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392120642517509874, guid: 8bffe598d7e3f964e8ff1cbde703876c, type: 3}
+      propertyPath: m_TagString
+      value: RockBig
       objectReference: {fileID: 0}
     - target: {fileID: 6492382946408390775, guid: 8bffe598d7e3f964e8ff1cbde703876c, type: 3}
       propertyPath: m_RootOrder
