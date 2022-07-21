@@ -19,6 +19,7 @@ public class MoveTest : MonoBehaviour
     public bool RockFlag3 = false;
     public bool RockFlag4 = false;
     public bool RockFlag5 = false;
+    public bool RockFlag6 = false;
 
 
 
@@ -30,7 +31,7 @@ public class MoveTest : MonoBehaviour
         RockFlag3 = false;
         RockFlag4 = false;
         RockFlag5 = false;
-
+        RockFlag6 = false;
     }
 
     void Update()
@@ -40,13 +41,13 @@ public class MoveTest : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
+                transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
 
@@ -68,6 +69,10 @@ public class MoveTest : MonoBehaviour
         {
             EnemyCon.isFollowing = false;
         }
+        if(KinAppleCount.KinAppleAmount < 0)
+        {
+            EnemyCon.isFollowing = false;
+        }
         if(CounterScript.coinAmount < 1)
         {
             RockFlag1 = false;
@@ -76,6 +81,10 @@ public class MoveTest : MonoBehaviour
             RockFlag4 = false;
             RockFlag5 = false;
         }
+        if(KinAppleCount.KinAppleAmount < 1)
+        {
+            RockFlag6 = false;
+        }
         if(EnemyCon.isFollowing == false)
         {
             RockFlag1 = false;
@@ -83,6 +92,7 @@ public class MoveTest : MonoBehaviour
             RockFlag3 = false;
             RockFlag4 = false;
             RockFlag5 = false;
+            RockFlag6 = false;
         }
         
         if(RockFlag1 == true)
@@ -136,6 +146,16 @@ public class MoveTest : MonoBehaviour
                 StartCoroutine(rockdestroy5());
             }
         }
+        if(RockFlag6 == true)
+        {
+            if(Input.GetKey(KeyCode.X))
+            {
+                EnemyCon.BigRock = true;
+                EnemyCon.isFollowing = false;
+                KinAppleCount.KinAppleAmount -= 1;
+                StartCoroutine(rockdestroy6());
+            }
+        }
         IEnumerator rockdestroy1()
         {
             yield return new WaitForSeconds(2);
@@ -184,6 +204,16 @@ public class MoveTest : MonoBehaviour
                 Destroy(EnemyCon.stone5.gameObject);
             }
             EnemyCon.isRock5 = false;
+            EnemyCon.isFollowing = true;
+        }
+        IEnumerator rockdestroy6()
+        {
+            yield return new WaitForSeconds(2);
+            if(EnemyCon.RockBig != null)
+            {
+                Destroy(EnemyCon.RockBig.gameObject);
+            }
+            EnemyCon.BigRock = false;
             EnemyCon.isFollowing = true;
         }
 
@@ -240,6 +270,12 @@ public class MoveTest : MonoBehaviour
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
+        if(collision.gameObject.tag == "RockBig")
+        {
+            RockFlag6 = true;
+            RockCheckText.SetActive(true);
+            RockUI.SetActive(true);
+        }
         
     }
 
@@ -274,6 +310,12 @@ public class MoveTest : MonoBehaviour
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag5 = false;
+        }
+        if(collision.gameObject.tag == "RockBig")
+        {
+            RockCheckText.SetActive(false);
+            RockUI.SetActive(false);
+            RockFlag6 = false;
         }
     }
 }
