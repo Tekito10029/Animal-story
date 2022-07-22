@@ -19,13 +19,13 @@ public class Lvlchange : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         ChangeTrue = true;
-       // SceneLoadText.SetActive(true);
+       
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         ChangeTrue = false;
-       // SceneLoadText.SetActive(false);
+        
     }
 
     private void Start()

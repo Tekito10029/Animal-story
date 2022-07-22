@@ -13,16 +13,22 @@ public class EnemyFollowing : MonoBehaviour
 
     [Header("Rock")]
     [SerializeField]public Transform stone1;
+    [SerializeField]public Transform stone1G;
     [Header("Rock1")]
     [SerializeField]public Transform stone2;
+    [SerializeField]public Transform stone2G;
     [Header("Rock2")]
     [SerializeField]public Transform stone3;
+    [SerializeField]public Transform stone3G;
     [Header("Rock3")]
     [SerializeField]public Transform stone4;
+    [SerializeField]public Transform stone4G;
     [Header("Rock4")]
     [SerializeField]public Transform stone5;
+    [SerializeField]public Transform stone5G;
     [Header("BigRock")]
     [SerializeField]public Transform RockBig;
+    [SerializeField]public Transform RockBigG;
 
     [Header("Player Script")]
     public MoveTest mt;
@@ -72,11 +78,11 @@ public class EnemyFollowing : MonoBehaviour
             
             if (player.transform.position.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-2, 2, 2);
+                transform.localScale = new Vector3(2, 2, 1);
             }
             else if (player.transform.position.x > transform.position.x)
             {
-                transform.localScale = new Vector3(2, 2, 2);
+                transform.localScale = new Vector3(-2, 2, 1);
             }
         }
 
@@ -85,9 +91,9 @@ public class EnemyFollowing : MonoBehaviour
        // {
              if(isRock1)
         {
-                if(Vector2.Distance(transform.position,stone1.position) > RockDistance)
+                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
             {
-                    transform.position = Vector2.MoveTowards(transform.position,stone1.position, speed * Time.deltaTime);  
+                transform.position = Vector2.MoveTowards(transform.position,stone1G.position, speed * Time.deltaTime);  
             }  
         }
         //}
@@ -95,41 +101,41 @@ public class EnemyFollowing : MonoBehaviour
         if(isRock2)
         {
             
-            if(Vector2.Distance(transform.position,stone2.position) > RockDistance)
+            if(Vector2.Distance(transform.position,stone2G.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone2.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,stone2G.position, speed * Time.deltaTime);
             }   
         }
         if(isRock3)
         {
             
-            if(Vector2.Distance(transform.position,stone3.position) > RockDistance)
+            if(Vector2.Distance(transform.position,stone3G.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone3.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,stone3G.position, speed * Time.deltaTime);
             }   
         }
         if(isRock4)
         {
             
-            if(Vector2.Distance(transform.position,stone4.position) > RockDistance)
+            if(Vector2.Distance(transform.position,stone4G.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone4.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,stone4G.position, speed * Time.deltaTime);
             }   
         }
         if(isRock5)
         {
             
-            if(Vector2.Distance(transform.position,stone5.position) > RockDistance)
+            if(Vector2.Distance(transform.position,stone5G.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone5.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,stone5G.position, speed * Time.deltaTime);
             }   
         }
         if(BigRock)
         {
             
-            if(Vector2.Distance(transform.position,RockBig.position) > RockDistance)
+            if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,RockBig.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed * Time.deltaTime);
             }   
         }
     } 
