@@ -13,6 +13,7 @@ public class MoveTest : MonoBehaviour
     [SerializeField]private GameObject RockUI;
 
     public bool playerMove = false;
+    public bool playerMove1 = false;
     public bool touchFlag = false;
     public bool RockFlag1 = false;
     public bool RockFlag2 = false;
@@ -43,14 +44,16 @@ public class MoveTest : MonoBehaviour
                 this.transform.Translate(-0.1f, 0.0f, 0.0f);
                 transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
             }
-
-            if (Input.GetKey(KeyCode.D))
+        }
+        if(playerMove1 == false)
+        {
+             if (Input.GetKey(KeyCode.D))
             {
                 this.transform.Translate(0.1f, 0.0f, 0.0f);
                 transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
-
+        
         if(touchFlag == true)
         {
             if(Input.GetKeyDown(KeyCode.X))
@@ -242,39 +245,53 @@ public class MoveTest : MonoBehaviour
     {
         if(collision.gameObject.tag == "stone1")
         {
+            playerMove1 = true;
             RockFlag1 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone2")
         {
+            playerMove1 = true;
             RockFlag2 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone3")
         {
+            playerMove1 = true;
             RockFlag3 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone4")
         {
+            playerMove1 = true;
             RockFlag4 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone5")
         {
+            playerMove1 = true;
             RockFlag5 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "RockBig")
         {
+            playerMove1 = true;
             RockFlag6 = true;
             RockCheckText.SetActive(true);
             RockUI.SetActive(true);
+        }
+        if(collision.gameObject.tag == "wall1")
+        {
+            playerMove = true;
+        }
+        if(collision.gameObject.tag == "wall2")
+        {
+            playerMove1 = true;
         }
         
     }
@@ -283,39 +300,53 @@ public class MoveTest : MonoBehaviour
     {
         if(collision.gameObject.tag == "stone1")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag1 = false;
         }
         if(collision.gameObject.tag == "stone2")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag2 = false;
         }
         if(collision.gameObject.tag == "stone3")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag3 = false;
         }
         if(collision.gameObject.tag == "stone4")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag4 = false;
         }
         if(collision.gameObject.tag == "stone5")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag5 = false;
         }
         if(collision.gameObject.tag == "RockBig")
         {
+            playerMove1 = false;
             RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag6 = false;
+        }
+        if(collision.gameObject.tag == "wall1")
+        {
+            playerMove = false;
+        }
+        if(collision.gameObject.tag == "wall2")
+        {
+            playerMove1 = false;
         }
     }
 }
