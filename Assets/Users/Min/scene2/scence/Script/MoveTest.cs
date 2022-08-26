@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
+    private Animator animator = null;
     Rigidbody2D rigid2D;
     [SerializeField]private GameObject Ruka;
     [SerializeField]private EnemyFollowing EnemyCon;
@@ -27,6 +28,7 @@ public class MoveTest : MonoBehaviour
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         RockFlag1 = false;
         RockFlag2 = false;
         RockFlag3 = false;
@@ -42,15 +44,21 @@ public class MoveTest : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
-            }
-
-            if (Input.GetKey(KeyCode.D))
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+                animator.SetBool("walk", true);
+            } 
+            else if (Input.GetKey(KeyCode.D))
             {
                 this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                animator.SetBool("walk", true);
+            }
+            else
+            {
+                animator.SetBool("walk", false);
             }
         }
+        
 
         if(touchFlag == true)
         {
