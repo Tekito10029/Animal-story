@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,42 +6,70 @@ using UnityEngine.UI;
 
 public class SmokeFade : MonoBehaviour
 {
-    GameObject me; // 自分のオブジェクト取得用変数
-    public float fadeStart = 1f; // フェード開始時間
-    public bool fadeIn = true; // trueの場合はフェードイン
-    [SerializeField]
-    public float fadeSpeed = 1f; // フェード速度指定
-
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Image img; // 画像
+    public bool item = false;
+    
+    private void Update()
     {
-        me = this.gameObject; // 自分のオブジェクト取得
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (fadeStart > 0f)
+        if (Input.GetKey(KeyCode.M))
         {
-            fadeStart -= Time.deltaTime;
+            item = true;
         }
-        else
+
+        if (item == true)
         {
-            if (fadeIn)
+            StartCoroutine("FadeIn"); // フェードインを開始
+            StartCoroutine("FadeOut");
+            item = false;
+        }
+    }
+    
+    IEnumerator FadeIn()
+    {
+        img.gameObject.SetActive(true); // 画像をアクティブにする
+ 
+        Color c = img.color;
+        c.a = 1f; 
+        img.color = c; // 画像の不透明度を1にする
+ 
+        while (true)
+        {
+            yield return null; // 1フレーム待つ
+            c.a -= 0.02f;
+            img.color = c; // 画像の不透明度を下げる
+ 
+            if (c.a <= 0f) // 不透明度が0以下のとき
             {
-                fadeInFunc();
+                c.a = 0f;
+                img.color = c; // 不透明度を0
+                break; // 繰り返し終了
             }
         }
     }
 
-    void fadeInFunc()
+    IEnumerator FadeOut()
     {
-        if (me.GetComponent<Image>().color.a < 255)
+
+        yield return new WaitForSeconds(5.0f);
+        
+        img.gameObject.SetActive(true); // 画像をアクティブにする
+ 
+        Color c = img.color;
+        c.a = 0f; 
+        img.color = c; // 画像の不透明度を1にする
+ 
+        while (true)
         {
-            UnityEngine.Color tmp = me.GetComponent<Image>().color;
-            tmp.a = tmp.a + (Time.deltaTime * fadeSpeed);
-            me.GetComponent<Image>().color = tmp;
+            yield return null; // 1フレーム待つ
+            c.a += 0.02f;
+            img.color = c; // 画像の不透明度を下げる
+
+            if (c.a >= 1f) // 不透明度が0以下のとき
+            {
+                c.a = 1f;
+                img.color = c; // 不透明度を0
+                break; // 繰り返し終了
+            }
         }
     }
 }
