@@ -8,6 +8,7 @@ public class SmokeFade : MonoBehaviour
 {
     [SerializeField] Image img; // 画像
     public bool item = false;
+    public bool SmokeNow = false;
     
     private void Update()
     {
@@ -18,9 +19,11 @@ public class SmokeFade : MonoBehaviour
 
         if (item == true)
         {
+            SmokeNow = true;
             StartCoroutine("FadeIn"); // フェードインを開始
             StartCoroutine("FadeOut");
             item = false;
+            SmokeNow = false;
         }
     }
     
@@ -50,7 +53,7 @@ public class SmokeFade : MonoBehaviour
     IEnumerator FadeOut()
     {
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(6.0f);
         
         img.gameObject.SetActive(true); // 画像をアクティブにする
  
