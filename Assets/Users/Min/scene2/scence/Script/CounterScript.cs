@@ -23,16 +23,19 @@ public class CounterScript : MonoBehaviour
 
         if(coinAmount <= 2)
         {
-            MT.touchFlag = false;
+            MT.RockFlag3 = false;
         }
         if(coinAmount <= 1)
         {
+            MT.touchFlag = false;
+            MT.RockFlag4 = false;
+            MT.RockFlag5 = false;
+        }
+
+        if (coinAmount <= 0)
+        {
             MT.RockFlag1 = false;
             MT.RockFlag2 = false;
-            MT.RockFlag3 = false;
-            //MT.RockFlag4 = false;
-            MT.RockFlag5 = false;
-
         }
     }
 }

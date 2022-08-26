@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 589630570}
   m_Layer: 6
   m_Name: wall1
-  m_TagString: Untagged
+  m_TagString: wall1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,7 +1934,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.020661, y: 1}
+    m_SensorSize: {x: 1.7879282, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3472,10 +3472,10 @@ MonoBehaviour:
   EnemyCon: {fileID: 460524704}
   inosisitext: {fileID: 473848988}
   TalkUI: {fileID: 209900931}
-  RockText: {fileID: 265305421}
-  BigRockText: {fileID: 14978568}
+  RockCheckText: {fileID: 265305421}
   RockUI: {fileID: 1976175474}
   playerMove: 0
+  playerMove1: 0
   touchFlag: 0
   RockFlag1: 0
   RockFlag2: 0
@@ -3933,6 +3933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d09124d67f6ff347b1dec38a2798b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MT: {fileID: 1252438107}
 --- !u!1 &1376178175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4791,7 +4792,7 @@ GameObject:
   - component: {fileID: 1622973980}
   m_Layer: 6
   m_Name: wall1 (2)
-  m_TagString: Untagged
+  m_TagString: wall2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5453,7 +5454,7 @@ GameObject:
   - component: {fileID: 1904201805}
   m_Layer: 6
   m_Name: wall1 (1)
-  m_TagString: Untagged
+  m_TagString: wall2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6418,7 +6419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3623304789056097968, guid: 2fb9d9f0c8a328946863e497f07d84af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.6
+      value: -13.02
       objectReference: {fileID: 0}
     - target: {fileID: 3623304789056097968, guid: 2fb9d9f0c8a328946863e497f07d84af, type: 3}
       propertyPath: m_LocalPosition.y

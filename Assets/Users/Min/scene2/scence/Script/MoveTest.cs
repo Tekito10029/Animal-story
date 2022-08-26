@@ -5,13 +5,14 @@ using UnityEngine;
 public class MoveTest : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    private Animator animator = null;
     [SerializeField]private GameObject Ruka;
     [SerializeField]private EnemyFollowing EnemyCon;
     [SerializeField]private GameObject inosisitext;
     [SerializeField]private GameObject TalkUI;
     [SerializeField]private GameObject RockCheckText;
     [SerializeField]private GameObject RockUI;
-
+    
     public bool playerMove = false;
     public bool playerMove1 = false;
     public bool touchFlag = false;
@@ -27,6 +28,7 @@ public class MoveTest : MonoBehaviour
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         RockFlag1 = false;
         RockFlag2 = false;
         RockFlag3 = false;
@@ -38,23 +40,28 @@ public class MoveTest : MonoBehaviour
     void Update()
     {
         if (playerMove == false)
-        {
-            if (Input.GetKey(KeyCode.A))
             {
-                this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+                if (Input.GetKey(KeyCode.A))
+                {
+                    this.transform.Translate(-0.1f, 0.0f, 0.0f);
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                    animator.SetBool("walk", true);
+                }
+                else
+                {
+                    animator.SetBool("walk", false);
+                }
             }
-        }
-        if(playerMove1 == false)
-        {
-             if (Input.GetKey(KeyCode.D))
+            if(playerMove1 == false)
             {
-                this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                if (Input.GetKey(KeyCode.D))
+                {
+                    this.transform.Translate(0.1f, 0.0f, 0.0f);
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                    animator.SetBool("walk", true);
+                }
             }
-        }
-        
-        if(touchFlag == true)
+            if(touchFlag == true)
         {
             if(Input.GetKeyDown(KeyCode.X))
             {
@@ -288,6 +295,7 @@ public class MoveTest : MonoBehaviour
         if(collision.gameObject.tag == "wall1")
         {
             playerMove = true;
+            animator.SetBool("walk", false);
         }
         if(collision.gameObject.tag == "wall2")
         {
