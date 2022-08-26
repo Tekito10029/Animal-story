@@ -50,9 +50,13 @@ public class EnemyFollowing : MonoBehaviour
     public bool isRock5 = false;
     public bool BigRock = false;
     
+    private Animator animator = null;
+    
+    
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         //stone1 = GameObject.Find("Stone1")
     }
 
@@ -68,25 +72,27 @@ public class EnemyFollowing : MonoBehaviour
 
         if (isFollowing)
         {
-            
+
             if (distance > stopDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position,
-                new Vector2(player.transform.position.x, enemy.transform.position.y),
-                speed * Time.deltaTime);
+                    new Vector2(player.transform.position.x, enemy.transform.position.y),
+                    speed * Time.deltaTime);
             }
-            
+
             if (player.transform.position.x < transform.position.x)
             {
                 transform.localScale = new Vector3(2, 2, 1);
+
             }
             else if (player.transform.position.x > transform.position.x)
             {
                 transform.localScale = new Vector3(-2, 2, 1);
+
             }
         }
 
-        
+        Transform myTransform = this.transform;
         //if(sotne1 != null)
        // {
              if(isRock1)
