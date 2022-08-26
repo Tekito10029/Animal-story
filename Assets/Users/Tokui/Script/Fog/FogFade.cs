@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmokeFade : MonoBehaviour
+public class FogFade : MonoBehaviour
 {
     [SerializeField] Image img; // 画像
     public bool haku = false;
     public bool itemuse = false;
-    public bool SmokeNow = false;
+    public bool fadeNow = false;
     
     private void Update()
     {
         if (haku == true)
         {
-            if (Input.GetKey(KeyCode.M))
+            if (Input.GetKey(KeyCode.X))
             {
                 itemuse = true;
             }
@@ -23,12 +23,17 @@ public class SmokeFade : MonoBehaviour
 
         if (itemuse == true)
         {
-            SmokeNow = true;
+            fadeNow = true;
             StartCoroutine("FadeIn"); // フェードインを開始
             StartCoroutine("FadeOut");
             itemuse = false;
-            SmokeNow = false;
+            fadeNow = false;
         }
+    }
+
+    private void ItemCount()
+    {
+        
     }
     
     IEnumerator FadeIn()
@@ -49,6 +54,7 @@ public class SmokeFade : MonoBehaviour
             {
                 c.a = 0f;
                 img.color = c; // 不透明度を0
+                
                 break; // 繰り返し終了
             }
         }
