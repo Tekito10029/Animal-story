@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
-    private Animator animator = null;
     Rigidbody2D rigid2D;
     [SerializeField]private GameObject Ruka;
     [SerializeField]private EnemyFollowing EnemyCon;
     [SerializeField]private GameObject inosisitext;
     [SerializeField]private GameObject TalkUI;
-    [SerializeField]private GameObject RockText;
-    [SerializeField]private GameObject BigRockText;
+    [SerializeField]private GameObject RockCheckText;
     [SerializeField]private GameObject RockUI;
 
     public bool playerMove = false;
+    public bool playerMove1 = false;
     public bool touchFlag = false;
     public bool RockFlag1 = false;
     public bool RockFlag2 = false;
@@ -28,7 +27,6 @@ public class MoveTest : MonoBehaviour
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         RockFlag1 = false;
         RockFlag2 = false;
         RockFlag3 = false;
@@ -44,22 +42,18 @@ public class MoveTest : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-                animator.SetBool("walk", true);
-            } 
-            else if (Input.GetKey(KeyCode.D))
+                transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
+            }
+        }
+        if(playerMove1 == false)
+        {
+             if (Input.GetKey(KeyCode.D))
             {
                 this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(1f, 1f, 1f);
-                animator.SetBool("walk", true);
-            }
-            else
-            {
-                animator.SetBool("walk", false);
+                transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
         }
         
-
         if(touchFlag == true)
         {
             if(Input.GetKeyDown(KeyCode.X))
@@ -77,11 +71,6 @@ public class MoveTest : MonoBehaviour
         if(CounterScript.coinAmount < 0)
         {
             EnemyCon.isFollowing = false;
-        }
-        if(CounterScript.coinAmount < 3)
-        {
-            inosisitext.SetActive(false);
-            TalkUI.SetActive((false));
         }
         if(KinAppleCount.KinAppleAmount < 0)
         {
@@ -256,39 +245,53 @@ public class MoveTest : MonoBehaviour
     {
         if(collision.gameObject.tag == "stone1")
         {
+            playerMove1 = true;
             RockFlag1 = true;
-            RockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone2")
         {
+            playerMove1 = true;
             RockFlag2 = true;
-            RockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone3")
         {
+            playerMove1 = true;
             RockFlag3 = true;
-            RockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone4")
         {
+            playerMove1 = true;
             RockFlag4 = true;
-            RockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "stone5")
         {
+            playerMove1 = true;
             RockFlag5 = true;
-            RockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
         }
         if(collision.gameObject.tag == "RockBig")
         {
+            playerMove1 = true;
             RockFlag6 = true;
-            BigRockText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI.SetActive(true);
+        }
+        if(collision.gameObject.tag == "wall1")
+        {
+            playerMove = true;
+        }
+        if(collision.gameObject.tag == "wall2")
+        {
+            playerMove1 = true;
         }
         
     }
@@ -297,39 +300,53 @@ public class MoveTest : MonoBehaviour
     {
         if(collision.gameObject.tag == "stone1")
         {
-            RockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag1 = false;
         }
         if(collision.gameObject.tag == "stone2")
         {
-            RockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag2 = false;
         }
         if(collision.gameObject.tag == "stone3")
         {
-            RockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag3 = false;
         }
         if(collision.gameObject.tag == "stone4")
         {
-            RockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag4 = false;
         }
         if(collision.gameObject.tag == "stone5")
         {
-            RockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag5 = false;
         }
         if(collision.gameObject.tag == "RockBig")
         {
-            BigRockText.SetActive(false);
+            playerMove1 = false;
+            RockCheckText.SetActive(false);
             RockUI.SetActive(false);
             RockFlag6 = false;
+        }
+        if(collision.gameObject.tag == "wall1")
+        {
+            playerMove = false;
+        }
+        if(collision.gameObject.tag == "wall2")
+        {
+            playerMove1 = false;
         }
     }
 }

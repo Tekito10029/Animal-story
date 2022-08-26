@@ -18,6 +18,8 @@ TagManager:
   - HomeApp
   - rock
   - RockBig
+  - wall1
+  - wall2
   layers:
   - Default
   - TransparentFX

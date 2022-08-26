@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CounterScript : MonoBehaviour
 {
     Text coinText;
+    public MoveTest MT;
     public static int coinAmount;
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,19 @@ public class CounterScript : MonoBehaviour
         coinText.text = coinAmount.ToString();
         if(coinAmount < 0)
         coinAmount = 0;
+
+        if(coinAmount <= 2)
+        {
+            MT.touchFlag = false;
+        }
+        if(coinAmount <= 1)
+        {
+            MT.RockFlag1 = false;
+            MT.RockFlag2 = false;
+            MT.RockFlag3 = false;
+            //MT.RockFlag4 = false;
+            MT.RockFlag5 = false;
+
+        }
     }
 }
