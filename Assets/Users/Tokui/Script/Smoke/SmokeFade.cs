@@ -7,22 +7,26 @@ using UnityEngine.UI;
 public class SmokeFade : MonoBehaviour
 {
     [SerializeField] Image img; // 画像
-    public bool item = false;
+    public bool haku = false;
+    public bool itemuse = false;
     public bool SmokeNow = false;
     
     private void Update()
     {
-        if (Input.GetKey(KeyCode.M))
+        if (haku == true)
         {
-            item = true;
+            if (Input.GetKey(KeyCode.M))
+            {
+                itemuse = true;
+            }
         }
 
-        if (item == true)
+        if (itemuse == true)
         {
             SmokeNow = true;
             StartCoroutine("FadeIn"); // フェードインを開始
             StartCoroutine("FadeOut");
-            item = false;
+            itemuse = false;
             SmokeNow = false;
         }
     }

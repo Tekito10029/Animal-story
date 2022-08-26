@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 411716513}
   item: 0
+  SmokeNow: 0
 --- !u!1 &799001665
 GameObject:
   m_ObjectHideFlags: 0
