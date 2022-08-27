@@ -20,6 +20,7 @@ TagManager:
   - RockBig
   - wall1
   - wall2
+  - fade
   layers:
   - Default
   - TransparentFX

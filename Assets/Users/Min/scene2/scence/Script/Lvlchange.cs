@@ -12,6 +12,8 @@ public class Lvlchange : MonoBehaviour
     private Transform _spawnPoint;
     [SerializeField]
     private Transform _spawnPoint1;
+    [SerializeField]
+    private GameObject FadeingThing;
     
    
     
@@ -38,8 +40,15 @@ public class Lvlchange : MonoBehaviour
     {
         if(ChangeTrue && Input.GetKeyDown(ChangeSceneKey1))
         {   
+            StartCoroutine(FadeTime());
+        }
+        IEnumerator FadeTime()
+        {
+            yield return new WaitForSeconds(2);
+            FadeingThing.SetActive(true);
             FindObjectOfType<MoveTest>().transform.position = _spawnPoint.position;
             FindObjectOfType<EnemyFollowing>().transform.position = _spawnPoint1.position;
         }
     }
+    //https://www.youtube.com/watch?v=77YBCXTfM0o
 }

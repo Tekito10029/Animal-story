@@ -41,7 +41,9 @@ public class EnemyFollowing : MonoBehaviour
     [Header("Between Player and Enemy Distance")]
     public float stopDistance;        
     [Header("Checker To Follow Player")]
-    public bool isFollowing = false;   
+    public bool isFollowing = false; 
+    public bool move1 = false;
+      
 
     public bool isRock1 = false;
     public bool isRock2 = false;
@@ -57,7 +59,7 @@ public class EnemyFollowing : MonoBehaviour
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //stone1 = GameObject.Find("Stone1")
+        
     }
 
    
@@ -76,23 +78,35 @@ public class EnemyFollowing : MonoBehaviour
             if (distance > stopDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position,
-                    new Vector2(player.transform.position.x, enemy.transform.position.y),
-                    speed * Time.deltaTime);
+                new Vector2(player.transform.position.x, enemy.transform.position.y),
+                speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
+            }
+            else if(distance < stopDistance)
+            {
+                animator.GetComponent<Animator>().enabled = false;
+            }
+            if(stopDistance == 7)
+            {
+                animator.SetBool("walk", false);
             }
 
             if (player.transform.position.x < transform.position.x)
             {
                 transform.localScale = new Vector3(2, 2, 1);
-
-            }
+                animator.SetBool("walk", true);
+            }   
+            
             else if (player.transform.position.x > transform.position.x)
             {
                 transform.localScale = new Vector3(-2, 2, 1);
-
-            }
+                animator.SetBool("walk", true);
+            }   
+            
         }
+       
 
-        Transform myTransform = this.transform;
+        //Transform myTransform = this.transform;
         //if(sotne1 != null)
        // {
              if(isRock1)
