@@ -1,23 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombItem : MonoBehaviour
 {
-    private FogFade _fogFade;
+    [Header("櫛のイメージ")] 
+    [SerializeField] private Image _combimg;
 
-    public bool ItemGet = false;
+    public Swan _swan;
     
-    void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("rukaHit");
             if (Input.GetKeyDown(KeyCode.X))
             {
-                ItemGet = true;
-                this.gameObject.SetActive(false);
+                _combimg.color = new Color32(0, 0, 0, 0);
+                _swan.Comb = true;
             }
         }
     }

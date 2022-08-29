@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1438677}
   - component: {fileID: 1438676}
   - component: {fileID: 1438678}
+  - component: {fileID: 1438679}
   m_Layer: 5
   m_Name: Swan
   m_TagString: Untagged
@@ -159,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -245.02}
-  m_SizeDelta: {x: 190, y: 190}
+  m_AnchoredPosition: {x: 0, y: -245}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438676
 MonoBehaviour:
@@ -224,8 +225,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 190, y: 190}
+  m_Size: {x: 400, y: 200}
   m_EdgeRadius: 0
+--- !u!114 &1438679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181ad7ed56119c94dba113b8efef02e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fogimg: {fileID: 411716513}
+  Comb: 0
+  ItemUse: 0
+  fadeNow: 0
+  target: {fileID: 1921804963}
+  speed: 5
 --- !u!1 &411716511
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +256,6 @@ GameObject:
   - component: {fileID: 411716512}
   - component: {fileID: 411716514}
   - component: {fileID: 411716513}
-  - component: {fileID: 411716515}
   m_Layer: 5
   m_Name: Fog
   m_TagString: Untagged
@@ -253,17 +271,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411716511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5023087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 970902323}
-  m_RootOrder: 5
+  m_Father: {fileID: 493522098}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 129.88159, y: -8.53064}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411716513
 MonoBehaviour:
@@ -303,22 +321,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411716511}
   m_CullTransparentMesh: 1
---- !u!114 &411716515
-MonoBehaviour:
+--- !u!1 &493522097
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411716511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01d6584153089f40af1ac1848809844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  img: {fileID: 411716513}
-  haku: 0
-  itemuse: 0
-  fadeNow: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493522098}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493522098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493522097}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -129.88159, y: 8.53064, z: -1.5023087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1194352932}
+  - {fileID: 1921804964}
+  - {fileID: 411716512}
+  m_Father: {fileID: 970902323}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &799001665
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,10 +525,8 @@ RectTransform:
   m_Children:
   - {fileID: 799001666}
   - {fileID: 1438675}
-  - {fileID: 1194352932}
   - {fileID: 1532541788}
-  - {fileID: 1921804964}
-  - {fileID: 411716512}
+  - {fileID: 493522098}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -528,17 +562,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194352931}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5023087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 970902323}
-  m_RootOrder: 2
+  m_Father: {fileID: 493522098}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443, y: -280}
+  m_AnchoredPosition: {x: 572.8816, y: -288.53064}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1194352933
@@ -565,7 +599,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 400, y: 120}
+  m_Size: {x: 250, y: 120}
   m_EdgeRadius: 0
 --- !u!114 &1194352934
 MonoBehaviour:
@@ -617,7 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a8d026a26ff2e4baadc1c45ecb54c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemGet: 0
+  _combimg: {fileID: 1194352934}
+  _swan: {fileID: 1438679}
 --- !u!1 &1289388841
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +836,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 970902323}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -900,17 +935,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921804963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5023087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 970902323}
-  m_RootOrder: 4
+  m_Father: {fileID: 493522098}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -687, y: -290.01}
+  m_AnchoredPosition: {x: -557.1184, y: -298.54065}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921804965
@@ -949,7 +984,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 100}
+  m_Size: {x: 200, y: 100}
   m_EdgeRadius: 0
 --- !u!114 &1921804968
 MonoBehaviour:
