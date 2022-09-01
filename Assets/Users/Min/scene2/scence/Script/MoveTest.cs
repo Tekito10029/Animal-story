@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
+   
     Rigidbody2D rigid2D;
     private Animator animator = null;
     [SerializeField]private GameObject Ruka;
@@ -11,7 +12,12 @@ public class MoveTest : MonoBehaviour
     [SerializeField]private GameObject inosisitext;
     [SerializeField]private GameObject TalkUI;
     [SerializeField]private GameObject RockCheckText;
-    [SerializeField]private GameObject RockUI;
+    [SerializeField]private GameObject RockUI1;
+    [SerializeField]private GameObject RockUI2;
+    [SerializeField]private GameObject RockUI3;
+    [SerializeField]private GameObject RockUI4;
+    [SerializeField]private GameObject RockUI5;
+    [SerializeField]private GameObject RockUI6;
     
     public bool playerMove = false;
     public bool playerMove1 = false;
@@ -43,7 +49,7 @@ public class MoveTest : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    this.transform.Translate(-0.01f, 0.0f, 0.0f);
+                    this.transform.Translate(-0.03f, 0.0f, 0.0f);
                     transform.localScale = new Vector3(-1f, 1f, 1f);
                     animator.SetBool("walk", true);
                 }
@@ -56,7 +62,7 @@ public class MoveTest : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.D))
                 {
-                    this.transform.Translate(0.01f, 0.0f, 0.0f);
+                    this.transform.Translate(0.03f, 0.0f, 0.0f);
                     transform.localScale = new Vector3(1f, 1f, 1f);
                     animator.SetBool("walk", true);
                 }
@@ -74,7 +80,6 @@ public class MoveTest : MonoBehaviour
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
         }
-        
         if(CounterScript.coinAmount < 0)
         {
             EnemyCon.isFollowing = false;
@@ -233,10 +238,13 @@ public class MoveTest : MonoBehaviour
         {
             if (collision.gameObject.tag == "inosisi")
             {
-                touchFlag = true;
+                touchFlag = true; 
+            } 
+            if(collision.gameObject.tag == "textcheck")
+            {
                 inosisitext.SetActive(true);
                 TalkUI.SetActive(true);
-            } 
+            }
         }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -244,6 +252,9 @@ public class MoveTest : MonoBehaviour
         if (collision.gameObject.tag == "inosisi")
         {
             touchFlag = false;
+        }
+        if(collision.gameObject.tag == "textcheck")
+        {
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
         }
@@ -255,42 +266,42 @@ public class MoveTest : MonoBehaviour
             playerMove1 = true;
             RockFlag1 = true;
             RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            RockUI1.SetActive(true);
         }
         if(collision.gameObject.tag == "stone2")
         {
             playerMove1 = true;
             RockFlag2 = true;
-            RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI2.SetActive(true);
         }
         if(collision.gameObject.tag == "stone3")
         {
             playerMove1 = true;
             RockFlag3 = true;
-            RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI3.SetActive(true);
         }
         if(collision.gameObject.tag == "stone4")
         {
             playerMove1 = true;
             RockFlag4 = true;
-            RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI4.SetActive(true);
         }
         if(collision.gameObject.tag == "stone5")
         {
             playerMove1 = true;
             RockFlag5 = true;
-            RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI5.SetActive(true);
         }
         if(collision.gameObject.tag == "RockBig")
         {
             playerMove1 = true;
             RockFlag6 = true;
-            RockCheckText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI6.SetActive(true);
         }
         if(collision.gameObject.tag == "wall1")
         {
@@ -310,42 +321,42 @@ public class MoveTest : MonoBehaviour
         {
             playerMove1 = false;
             RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+            RockUI1.SetActive(false);
             RockFlag1 = false;
         }
         if(collision.gameObject.tag == "stone2")
         {
             playerMove1 = false;
-            RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+            //RockCheckText.SetActive(false);
+            RockUI2.SetActive(false);
             RockFlag2 = false;
         }
         if(collision.gameObject.tag == "stone3")
         {
             playerMove1 = false;
-            RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+           // RockCheckText.SetActive(false);
+            RockUI3.SetActive(false);
             RockFlag3 = false;
         }
         if(collision.gameObject.tag == "stone4")
         {
             playerMove1 = false;
-            RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+           // RockCheckText.SetActive(false);
+            RockUI4.SetActive(false);
             RockFlag4 = false;
         }
         if(collision.gameObject.tag == "stone5")
         {
             playerMove1 = false;
-            RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+            //RockCheckText.SetActive(false);
+            RockUI5.SetActive(false);
             RockFlag5 = false;
         }
         if(collision.gameObject.tag == "RockBig")
         {
             playerMove1 = false;
-            RockCheckText.SetActive(false);
-            RockUI.SetActive(false);
+            //RockCheckText.SetActive(false);
+            RockUI6.SetActive(false);
             RockFlag6 = false;
         }
         if(collision.gameObject.tag == "wall1")

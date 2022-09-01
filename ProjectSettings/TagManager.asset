@@ -21,6 +21,7 @@ TagManager:
   - wall1
   - wall2
   - fade
+  - inosisitext
   layers:
   - Default
   - TransparentFX
