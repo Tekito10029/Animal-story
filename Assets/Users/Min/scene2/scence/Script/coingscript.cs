@@ -10,6 +10,7 @@ public class coingscript : MonoBehaviour
     private void Start()
     {
         applecount = false;
+        Apllecounttext.SetActive(true);
     }
 
     private void Update()
@@ -20,8 +21,8 @@ public class coingscript : MonoBehaviour
             {
                 CounterScript.coinAmount += 1;
                 Destroy(gameObject);
-            }
-           
+                Apllecounttext.SetActive(false);
+            } 
         }
     }
     
@@ -30,7 +31,7 @@ public class coingscript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             applecount = true;
-            Apllecounttext.SetActive(true);
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -38,7 +39,7 @@ public class coingscript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
                 applecount = false;
-                Apllecounttext.SetActive(false);
+                
         }
     }
 }

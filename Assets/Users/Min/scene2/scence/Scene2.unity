@@ -293,7 +293,6 @@ GameObject:
   - component: {fileID: 221708033}
   - component: {fileID: 221708036}
   - component: {fileID: 221708035}
-  - component: {fileID: 221708034}
   m_Layer: 0
   m_Name: coin (2)
   m_TagString: Untagged
@@ -316,18 +315,6 @@ Transform:
   m_Father: {fileID: 590365627}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &221708034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221708032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c5795c5c16284bb8fa9d9ce1f5418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &221708035
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -407,7 +394,6 @@ GameObject:
   - component: {fileID: 439121609}
   - component: {fileID: 439121612}
   - component: {fileID: 439121611}
-  - component: {fileID: 439121610}
   m_Layer: 0
   m_Name: coin (5)
   m_TagString: Untagged
@@ -430,18 +416,6 @@ Transform:
   m_Father: {fileID: 590365627}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &439121610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439121608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c5795c5c16284bb8fa9d9ce1f5418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &439121611
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -510,11 +484,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &476913537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2576041475364150616, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
-  m_PrefabInstance: {fileID: 2576041475564225241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &590365626
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,16 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a55b510a660ef4c85cc7d313fe3275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1452791862}
-  enemy: {fileID: 738828180}
-  Target: {fileID: 183753023}
-  Rock: {fileID: 1902932023}
-  mt: {fileID: 1452791868}
-  speed: 3
-  RockDistance: 0
-  stopDistance: 3
-  isFollowing: 0
-  isRock: 0
 --- !u!1 &742020270
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +680,6 @@ GameObject:
   - component: {fileID: 742020271}
   - component: {fileID: 742020274}
   - component: {fileID: 742020273}
-  - component: {fileID: 742020272}
   m_Layer: 0
   m_Name: coin (3)
   m_TagString: Untagged
@@ -744,18 +702,6 @@ Transform:
   m_Father: {fileID: 590365627}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &742020272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742020270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c5795c5c16284bb8fa9d9ce1f5418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &742020273
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -824,11 +770,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1029821046 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8510751803412051615, guid: 729506f6c6bc7364eabaa04bded4e930, type: 3}
-  m_PrefabInstance: {fileID: 2576041475564225241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1200940261
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,14 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be33ba952c4523b4d9cfbbefd8ae032c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeSceneKey1: 110
-  ChangeSceneKey2: 109
-  ChangeTrue: 0
-  _targetSceneName: Map1
-  _ChangeSceneName: Map2
-  _spawnPoint: {fileID: 1482831805}
-  SceneLoadText: {fileID: 1527975005}
-  _connection: {fileID: 11400000, guid: 20d391d4cb8f6974ba0ee7a7b58bb5de, type: 2}
 --- !u!1 &1285994624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1020,6 @@ GameObject:
   - component: {fileID: 1289837823}
   - component: {fileID: 1289837826}
   - component: {fileID: 1289837825}
-  - component: {fileID: 1289837824}
   m_Layer: 0
   m_Name: coin (4)
   m_TagString: Untagged
@@ -1110,18 +1042,6 @@ Transform:
   m_Father: {fileID: 590365627}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1289837824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289837822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c5795c5c16284bb8fa9d9ce1f5418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1289837825
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1420,14 +1340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc6e0694740e2940a1dc02ecaf6a712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1452791862}
-  EnemyCon: {fileID: 738828186}
-  HpCanvas: {fileID: 476913537}
-  CheckText: {fileID: 1854260828}
-  RockCheckText: {fileID: 1029821046}
-  playerMove: 0
-  touchFlag: 0
-  RockFlag: 0
 --- !u!1 &1482831804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1790,6 @@ GameObject:
   - component: {fileID: 1951744601}
   - component: {fileID: 1951744604}
   - component: {fileID: 1951744603}
-  - component: {fileID: 1951744602}
   m_Layer: 0
   m_Name: coin (1)
   m_TagString: Untagged
@@ -1901,18 +1812,6 @@ Transform:
   m_Father: {fileID: 590365627}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951744602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951744600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572c5795c5c16284bb8fa9d9ce1f5418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1951744603
 CircleCollider2D:
   m_ObjectHideFlags: 0

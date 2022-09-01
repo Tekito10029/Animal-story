@@ -174,6 +174,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 492250938}
   _spawnPoint1: {fileID: 1766341231}
+  FadeingThing: {fileID: 0}
 --- !u!61 &3902494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 492250938}
   _spawnPoint1: {fileID: 1766341231}
+  FadeingThing: {fileID: 0}
 --- !u!61 &35706859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1145,6 +1147,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 324246055}
   _spawnPoint1: {fileID: 780229182}
+  FadeingThing: {fileID: 0}
 --- !u!61 &368585490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1223,6 +1226,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 822927266}
   _spawnPoint1: {fileID: 1269434067}
+  FadeingThing: {fileID: 0}
 --- !u!114 &452264255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1243,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 958150562}
   _spawnPoint1: {fileID: 1560031858}
+  FadeingThing: {fileID: 0}
 --- !u!61 &452264256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1285,16 +1290,23 @@ MonoBehaviour:
   player: {fileID: 1252438104}
   enemy: {fileID: 460524703}
   stone1: {fileID: 3298371005946989196}
+  stone1G: {fileID: 0}
   stone2: {fileID: 499196945}
+  stone2G: {fileID: 0}
   stone3: {fileID: 274664477}
+  stone3G: {fileID: 0}
   stone4: {fileID: 981849625}
+  stone4G: {fileID: 0}
   stone5: {fileID: 2088731132}
+  stone5G: {fileID: 0}
   RockBig: {fileID: 6741763793359757343}
+  RockBigG: {fileID: 0}
   mt: {fileID: 1252438107}
   speed: 3
   RockDistance: 2
   stopDistance: 5
   isFollowing: 0
+  move1: 0
   isRock1: 0
   isRock2: 0
   isRock3: 0
@@ -2773,6 +2785,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 324246055}
   _spawnPoint1: {fileID: 780229182}
+  FadeingThing: {fileID: 0}
 --- !u!61 &1018748045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3717,7 +3730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1511230580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5244,6 +5257,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 1457231989}
   _spawnPoint1: {fileID: 2134574376}
+  FadeingThing: {fileID: 0}
 --- !u!114 &2093719931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5260,6 +5274,7 @@ MonoBehaviour:
   ChangeTrue: 0
   _spawnPoint: {fileID: 1448357503}
   _spawnPoint1: {fileID: 24254503}
+  FadeingThing: {fileID: 0}
 --- !u!1 &2120865513
 GameObject:
   m_ObjectHideFlags: 0

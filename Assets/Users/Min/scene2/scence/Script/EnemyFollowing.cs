@@ -41,7 +41,10 @@ public class EnemyFollowing : MonoBehaviour
     [Header("Between Player and Enemy Distance")]
     public float stopDistance;        
     [Header("Checker To Follow Player")]
-    public bool isFollowing = false;   
+    public bool isFollowing = false; 
+    public bool move1 = false;
+    
+      
 
     public bool isRock1 = false;
     public bool isRock2 = false;
@@ -57,7 +60,8 @@ public class EnemyFollowing : MonoBehaviour
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //stone1 = GameObject.Find("Stone1")
+        
+        
     }
 
    
@@ -76,23 +80,33 @@ public class EnemyFollowing : MonoBehaviour
             if (distance > stopDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position,
-                    new Vector2(player.transform.position.x, enemy.transform.position.y),
-                    speed * Time.deltaTime);
+                new Vector2(player.transform.position.x, enemy.transform.position.y),
+                speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
+                animator.SetBool("walk", true);
+            }
+            else if(distance < stopDistance)
+            {
+                animator.GetComponent<Animator>().enabled = false;
             }
 
             if (player.transform.position.x < transform.position.x)
             {
                 transform.localScale = new Vector3(2, 2, 1);
-
-            }
+                animator.SetBool("walk", true);
+            }   
+            
             else if (player.transform.position.x > transform.position.x)
             {
                 transform.localScale = new Vector3(-2, 2, 1);
-
-            }
+                animator.SetBool("walk", true);
+            }   
+            
         }
+        
+       
 
-        Transform myTransform = this.transform;
+        //Transform myTransform = this.transform;
         //if(sotne1 != null)
        // {
              if(isRock1)
@@ -100,6 +114,7 @@ public class EnemyFollowing : MonoBehaviour
                 if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone1G.position, speed * Time.deltaTime);  
+                animator.GetComponent<Animator>().enabled = true;
             }  
         }
         //}
@@ -110,6 +125,7 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,stone2G.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone2G.position, speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
             }   
         }
         if(isRock3)
@@ -118,6 +134,7 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,stone3G.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone3G.position, speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
             }   
         }
         if(isRock4)
@@ -126,6 +143,7 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,stone4G.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone4G.position, speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
             }   
         }
         if(isRock5)
@@ -134,6 +152,7 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,stone5G.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,stone5G.position, speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
             }   
         }
         if(BigRock)
@@ -142,6 +161,7 @@ public class EnemyFollowing : MonoBehaviour
             if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed * Time.deltaTime);
+                animator.GetComponent<Animator>().enabled = true;
             }   
         }
     } 
