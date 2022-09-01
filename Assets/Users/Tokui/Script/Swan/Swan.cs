@@ -10,6 +10,7 @@ public class Swan : MonoBehaviour
     [SerializeField] Image _fogimg; // 画像
     public bool Comb = false;
     public bool ItemUse = false;
+    public bool MoveStop = false;
     public bool fadeNow = false;
 
     public GameObject target;
@@ -22,6 +23,7 @@ public class Swan : MonoBehaviour
             Debug.Log("rukaHit");
             if (Comb == true)
             {
+                MoveStop = true;
                 if (Input.GetKeyDown(KeyCode.X))
                 {
                     ItemUse = true;
@@ -29,14 +31,22 @@ public class Swan : MonoBehaviour
             }
         }
     }
-    
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        MoveStop = false;
+    }
+
 
     private void Update()
     {
         if (ItemUse == true)
         {
-            //自分の位置、ターゲット、速度
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+            if (MoveStop == false)
+            {
+                //自分の位置、ターゲット、速度
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+            }
             // 対象物へのベクトルを算出
             Vector3 toDirection = target.transform.position - transform.position;
             // 対象物へ回転する
