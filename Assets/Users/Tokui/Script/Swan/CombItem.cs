@@ -18,7 +18,8 @@ public class CombItem : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                _combimg.color = new Color32(0, 0, 0, 0);
+                Destroy(gameObject);
+                //_combimg.color = new Color32(0, 0, 0, 0);
                 _swan.Comb = true;
             }
         }

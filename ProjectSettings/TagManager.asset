@@ -22,6 +22,7 @@ TagManager:
   - wall2
   - fade
   - inosisitext
+  - swan
   layers:
   - Default
   - TransparentFX
