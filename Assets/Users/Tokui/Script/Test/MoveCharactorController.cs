@@ -22,14 +22,6 @@ public class MoveCharactorController : MonoBehaviour
         {
             position.x += speed;
         }
-        else if (Input.GetKey("up"))
-        {
-            position.y += speed;
-        }
-        else if (Input.GetKey("down"))
-        {
-            position.y -= speed;
-        }
 
         transform.position = position;
 

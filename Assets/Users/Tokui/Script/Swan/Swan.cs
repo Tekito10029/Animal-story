@@ -24,7 +24,7 @@ public class Swan : MonoBehaviour
             if (Comb == true)
             {
                 MoveStop = true;
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetButton("Fire2"))
                 {
                     ItemUse = true;
                 }
@@ -58,7 +58,7 @@ public class Swan : MonoBehaviour
             
             if (ItemUse == true)
             {
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetButton("Fire2"))
                 {
                     if (fadeNow == false)
                     {

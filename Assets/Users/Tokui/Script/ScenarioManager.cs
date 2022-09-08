@@ -113,10 +113,14 @@ public class ScenarioManager : MonoBehaviour
     private void Update()
     {
         PushSkipButton();
-        if (_isSkip) return;
-        if (Input.GetKeyDown(nextKey)) NextKey();
-        if (Input.GetMouseButtonDown(1)) OnClickRight();
-        MouseScroll();
+        if (_isSkip)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(nextKey))
+        {
+            NextKey();
+        }
     }
 
     /**

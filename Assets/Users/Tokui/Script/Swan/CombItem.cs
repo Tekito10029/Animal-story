@@ -16,7 +16,7 @@ public class CombItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButton("Fire2"))
             {
                 _combimg.color = new Color32(0, 0, 0, 0);
                 _swan.Comb = true;
