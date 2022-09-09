@@ -117,7 +117,7 @@ public class ScenarioManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(nextKey))
+        if (Input.GetKeyDown(nextKey) || Input.GetButtonDown("Fire2"))
         {
             NextKey();
         }
