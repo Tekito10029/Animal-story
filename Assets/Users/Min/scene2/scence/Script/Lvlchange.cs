@@ -40,7 +40,12 @@ public class Lvlchange : MonoBehaviour
         {   
            
            FadeingThing.SetActive(true);
-           FindObjectOfType<MoveTest>().transform.position = _spawnPoint.position;
+            StartCoroutine(Change());
+        }
+        IEnumerator Change()
+        {
+            yield return new WaitForSeconds(1f);
+            FindObjectOfType<MoveTest>().transform.position = _spawnPoint.position;
             FindObjectOfType<EnemyFollowing>().transform.position = _spawnPoint1.position;
         }
         
