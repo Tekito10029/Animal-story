@@ -16,7 +16,7 @@ public class CombItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButton("Fire2") || Input.GetKeyDown(KeyCode.X))
             {
                 Destroy(gameObject);
                 //_combimg.color = new Color32(0, 0, 0, 0);
