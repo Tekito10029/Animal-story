@@ -1146,7 +1146,7 @@ MonoBehaviour:
   nextPageIcon: {fileID: 774077819}
   spritesDirectory: Sprites/
   prefabsDirectory: Prefabs/
-  textFile: Texts/Prologue
+  textFile: Texts/StageTwoClearScenario
   animationsDirectory: Animations/
   overrideAnimationClipName: Clip
   captionSpeed: 0.05
