@@ -113,10 +113,14 @@ public class ScenarioManager : MonoBehaviour
     private void Update()
     {
         PushSkipButton();
-        if (_isSkip) return;
-        if (Input.GetKeyDown(nextKey)) NextKey();
-        if (Input.GetMouseButtonDown(1)) OnClickRight();
-        MouseScroll();
+        if (_isSkip)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(nextKey) || Input.GetButtonDown("Fire2"))
+        {
+            NextKey();
+        }
     }
 
     /**
@@ -782,7 +786,7 @@ public class ScenarioManager : MonoBehaviour
     */
     private void PushSkipButton()
     {
-        if (!_isSkip && Input.GetKey(skipKey))
+        if (!_isSkip && Input.GetKey(skipKey) || Input.GetButtonDown("Fire1"))
         {
             _isSkip = true;
             StartCoroutine(Skip(skipSpeed));
