@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class MoveCharactorController : MonoBehaviour
 {
@@ -31,10 +31,4 @@ public class MoveCharactorController : MonoBehaviour
 
         transform.position = position;
     }
-    
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        move = context.ReadValue<Vector2>();
-    }
-
 }
