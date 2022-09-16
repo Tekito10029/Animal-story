@@ -19,7 +19,7 @@ public class KinAppleScript : MonoBehaviour
     {
         if(kinapplecount)
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 KinAppleCount.KinAppleAmount += 1;
                 Destroy(gameObject);

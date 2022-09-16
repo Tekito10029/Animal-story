@@ -14,6 +14,7 @@ public class EnemyFollowing : MonoBehaviour
     [Header("Rock")]
     [SerializeField]public Transform stone1;
     [SerializeField]public Transform stone1G;
+    [SerializeField] public Transform bd1;
     [Header("Rock1")]
     [SerializeField]public Transform stone2;
     [SerializeField]public Transform stone2G;
@@ -34,7 +35,9 @@ public class EnemyFollowing : MonoBehaviour
     public MoveTest mt;
 
     [Header("Enemy Following Speed")]
-    public float speed = 3.0f;         
+    public float speed = 1.0f;
+    public float speed1 = 1.0f;
+    public float speed2 = 1.0f;
 
     [Header("Between Enemy and Rock Distance")]
     public float RockDistance;
@@ -111,11 +114,22 @@ public class EnemyFollowing : MonoBehaviour
        // {
              if(isRock1)
         {
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd1.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone1G.position, speed * Time.deltaTime);  
+                transform.position = Vector2.MoveTowards(transform.position, bd1.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
-            }  
+                StartCoroutine(backdistance1());
+            }
+            IEnumerator backdistance1()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,stone1G.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            }
+
         }
         //}
        

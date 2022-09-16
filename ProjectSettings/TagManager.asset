@@ -3,7 +3,31 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tele2
+  - Tele3
+  - apple3
+  - Tele5
+  - Tele4
+  - wall1
+  - Tele6
+  - apple4
+  - apple6
+  - apple5
+  - wall2
+  - apple2
+  - apple7
+  - apple1
+  - Tele1
+  - textcheck
+  - stone3
+  - stone2
+  - stone4
+  - stone5
+  - inosisi
+  - stone1
+  - RockBig
+  - test
   layers:
   - Default
   - TransparentFX
