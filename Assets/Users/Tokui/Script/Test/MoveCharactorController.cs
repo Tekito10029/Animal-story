@@ -12,9 +12,11 @@ public class MoveCharactorController : MonoBehaviour
         Vector2 position = transform.position;
 
         var _HorizontalInput = Input.GetAxisRaw("Horizontal");
-
+        var _VerticalInput = Input.GetAxisRaw("Vertical");
+        
         Debug.Log(_HorizontalInput);
-
+        Debug.Log(_VerticalInput);
+        
         if (Input.GetKey("left") || _HorizontalInput <= 0.3)
         {
             position.x -= speed;
