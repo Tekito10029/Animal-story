@@ -4,17 +4,54 @@ using UnityEngine;
 
 public class MoveTest : MonoBehaviour
 {
+   
     Rigidbody2D rigid2D;
+    private Transform ruka_T;
+    private Animator animator = null;
+    [SerializeField] private float moveSpeed = 3f;
+    [Header("Player")]
     [SerializeField]private GameObject Ruka;
+    [Header("Inosisi")]
     [SerializeField]private EnemyFollowing EnemyCon;
+    [Header("Inosisi_Child")]
     [SerializeField]private GameObject inosisitext;
+    [Header("Inosisi_UI")]
     [SerializeField]private GameObject TalkUI;
-    [SerializeField]private GameObject RockText;
-    [SerializeField]private GameObject BigRockText;
-    [SerializeField]private GameObject RockUI;
+    [Header("RockUI")]
+    [SerializeField]private GameObject RockCheckText;
+    [Header("Apple_UI_Group")]
+    [SerializeField] private GameObject _Apple_Buttom_UI1;
+    [SerializeField] private GameObject _Apple_Buttom_UI2;
+    [SerializeField] private GameObject _Apple_Buttom_UI3;
+    [SerializeField] private GameObject _Apple_Buttom_UI4;
+    [SerializeField] private GameObject _Apple_Buttom_UI5;
+    [SerializeField] private GameObject _Apple_Buttom_UI6;
+    [SerializeField] private GameObject _Apple_Buttom_UI7;
 
+    [Header("Rock_UI_Group")]
+    [SerializeField]private GameObject RockUI1;
+    [SerializeField]private GameObject RockUI2;
+    [SerializeField]private GameObject RockUI3;
+    [SerializeField]private GameObject RockUI4;
+    [SerializeField]private GameObject RockUI5;
+    [SerializeField]private GameObject RockUI6;
+
+    [Header("Portal_UI_Group")]
+    [SerializeField] private GameObject _Porta1;
+    [SerializeField] private GameObject _Porta2;
+    [SerializeField] private GameObject _Porta3;
+    [SerializeField] private GameObject _Porta4;
+    [SerializeField] private GameObject _Porta5;
+    [SerializeField] private GameObject _Porta6;
+
+    [Header("Player_Left_Move")]
     public bool playerMove = false;
+    [Header("Player_Right_Move")]
+    public bool playerMove1 = false;
+    [Header("Enemy_touck_Check")]
     public bool touchFlag = false;
+
+    [Header("Rock_Touch_Check")]
     public bool RockFlag1 = false;
     public bool RockFlag2 = false;
     public bool RockFlag3 = false;
@@ -27,34 +64,44 @@ public class MoveTest : MonoBehaviour
     void Start()
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        ruka_T = this.GetComponent<Transform>();
         RockFlag1 = false;
         RockFlag2 = false;
         RockFlag3 = false;
         RockFlag4 = false;
         RockFlag5 = false;
         RockFlag6 = false;
+       
     }
 
     void Update()
     {
-        if (playerMove == false)
-        {
-            if (Input.GetKey(KeyCode.A))
+       /* if (playerMove == false)
             {
-                this.transform.Translate(-0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
+                if (Input.GetKey(KeyCode.A))
+                {
+                    this.transform.Translate(-0.1f, 0.0f, 0.0f);
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                    animator.SetBool("walk", true);
+                }
+                else
+                {
+                    animator.SetBool("walk", false);
+                }
             }
-
-            if (Input.GetKey(KeyCode.D))
+            if(playerMove1 == false)
             {
-                this.transform.Translate(0.1f, 0.0f, 0.0f);
-                transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-            }
-        }
-
+                if (Input.GetKey(KeyCode.D))
+                {
+                    this.transform.Translate(0.1f, 0.0f, 0.0f);
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                    animator.SetBool("walk", true);
+                }
+            }*/
         if(touchFlag == true)
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isFollowing = true; 
                 CounterScript.coinAmount -= 1;
@@ -65,15 +112,9 @@ public class MoveTest : MonoBehaviour
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
         }
-        
         if(CounterScript.coinAmount < 0)
         {
             EnemyCon.isFollowing = false;
-        }
-        if(CounterScript.coinAmount < 3)
-        {
-            inosisitext.SetActive(false);
-            TalkUI.SetActive((false));
         }
         if(KinAppleCount.KinAppleAmount < 0)
         {
@@ -100,10 +141,9 @@ public class MoveTest : MonoBehaviour
             RockFlag5 = false;
             RockFlag6 = false;
         }
-        
         if(RockFlag1 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock1 = true;
                 EnemyCon.isFollowing = false;
@@ -111,10 +151,9 @@ public class MoveTest : MonoBehaviour
                 StartCoroutine(rockdestroy1());
             }
         }
-        
         if(RockFlag2 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock2 = true;
                 EnemyCon.isFollowing = false;
@@ -124,7 +163,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag3 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock3 = true;
                 EnemyCon.isFollowing = false;
@@ -134,7 +173,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag4 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock4 = true;
                 EnemyCon.isFollowing = false;
@@ -144,7 +183,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag5 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock5 = true;
                 EnemyCon.isFollowing = false;
@@ -154,7 +193,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag6 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.BigRock = true;
                 EnemyCon.isFollowing = false;
@@ -164,7 +203,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy1()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone1 != null)
             {
                  Destroy(EnemyCon.stone1.gameObject);
@@ -229,99 +268,260 @@ public class MoveTest : MonoBehaviour
         {
             if (collision.gameObject.tag == "inosisi")
             {
-                touchFlag = true;
+                touchFlag = true; 
+            } 
+            if(collision.gameObject.tag == "textcheck")
+            {
                 inosisitext.SetActive(true);
                 TalkUI.SetActive(true);
-            } 
-        }
+            }
+            if (collision.gameObject.tag == "apple1")
+            {
+                _Apple_Buttom_UI1.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple2")
+            {
+                _Apple_Buttom_UI2.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple3")
+            {
+                _Apple_Buttom_UI3.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple4")
+            {
+                _Apple_Buttom_UI4.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple5")
+            {
+                _Apple_Buttom_UI5.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple6")
+            {
+                _Apple_Buttom_UI6.SetActive(true);
+            }
+            if (collision.gameObject.tag == "apple7")
+            {
+                _Apple_Buttom_UI7.SetActive(true);
+            }
+            if (collision.gameObject.tag == "Tele1")
+            {
+                _Porta1.SetActive(true); 
+            }
+            if (collision.gameObject.tag == "Tele2")
+            {
+                _Porta2.SetActive(true);
+            }
+            if (collision.gameObject.tag == "Tele3")
+            {
+                _Porta3.SetActive(true);
+            }
+            if (collision.gameObject.tag == "Tele4")
+            {
+                _Porta4.SetActive(true);
+            }
+            if (collision.gameObject.tag == "Tele5")
+            {
+                _Porta5.SetActive(true);
+            }
+            if (collision.gameObject.tag == "Tele6")
+            {
+                _Porta6.SetActive(true);
+            }
 
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "inosisi")
         {
             touchFlag = false;
+        }
+        if(collision.gameObject.tag == "textcheck")
+        {
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
         }
+        if (collision.gameObject.tag == "apple1")
+        {
+            _Apple_Buttom_UI1.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple2")
+        {
+            _Apple_Buttom_UI2.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple3")
+        {
+           _Apple_Buttom_UI3.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple4")
+        {
+            _Apple_Buttom_UI4.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple5")
+        {
+            _Apple_Buttom_UI5.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple6")
+        {
+            _Apple_Buttom_UI6.SetActive(false);
+        }
+        if (collision.gameObject.tag == "apple7")
+        {
+            _Apple_Buttom_UI7.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Tele1")
+        {
+            _Porta1.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Tele2")
+        {
+            _Porta2.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Tele3")
+        {
+            _Porta3.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Tele4")
+        {
+            _Porta4.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Tele5")
+        {
+            _Porta5.SetActive(false) ;
+        }
+        if (collision.gameObject.tag == "Tele6")
+        {
+            _Porta6.SetActive(false);
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "stone1")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag1 = true;
-            RockText.SetActive(true);
-            RockUI.SetActive(true);
+            RockCheckText.SetActive(true);
+            RockUI1.SetActive(true);
         }
         if(collision.gameObject.tag == "stone2")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag2 = true;
-            RockText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI2.SetActive(true);
         }
         if(collision.gameObject.tag == "stone3")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag3 = true;
-            RockText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI3.SetActive(true);
         }
         if(collision.gameObject.tag == "stone4")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag4 = true;
-            RockText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI4.SetActive(true);
         }
         if(collision.gameObject.tag == "stone5")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag5 = true;
-            RockText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI5.SetActive(true);
         }
         if(collision.gameObject.tag == "RockBig")
         {
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag6 = true;
-            BigRockText.SetActive(true);
-            RockUI.SetActive(true);
+            //RockCheckText.SetActive(true);
+            RockUI6.SetActive(true);
         }
-        
+        if(collision.gameObject.tag == "wall1")
+        {
+            animator.GetComponent<Animator>().enabled = false;
+        }
+        if(collision.gameObject.tag == "wall2")
+        {
+            animator.GetComponent<Animator>().enabled = false;
+        }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "stone1")
         {
-            RockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            RockCheckText.SetActive(false);
+            RockUI1.SetActive(false);
             RockFlag1 = false;
         }
         if(collision.gameObject.tag == "stone2")
         {
-            RockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            //RockCheckText.SetActive(false);
+            RockUI2.SetActive(false);
             RockFlag2 = false;
         }
         if(collision.gameObject.tag == "stone3")
         {
-            RockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            // RockCheckText.SetActive(false);
+            RockUI3.SetActive(false);
             RockFlag3 = false;
         }
         if(collision.gameObject.tag == "stone4")
         {
-            RockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            // RockCheckText.SetActive(false);
+            RockUI4.SetActive(false);
             RockFlag4 = false;
         }
         if(collision.gameObject.tag == "stone5")
         {
-            RockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            //RockCheckText.SetActive(false);
+            RockUI5.SetActive(false);
             RockFlag5 = false;
         }
         if(collision.gameObject.tag == "RockBig")
         {
-            BigRockText.SetActive(false);
-            RockUI.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            //RockCheckText.SetActive(false);
+            RockUI6.SetActive(false);
             RockFlag6 = false;
         }
+        if (collision.gameObject.tag == "wall1")
+        {
+            animator.GetComponent<Animator>().enabled = true;
+        }
+        if (collision.gameObject.tag == "wall2")
+        {
+            animator.GetComponent<Animator>().enabled = true;
+        }
+
+    }
+
+    void FixedUpdate()
+    {
+        float horizontalValue = Input.GetAxisRaw("Horizontal");
+        rigid2D.velocity = new Vector2(horizontalValue, 0) * moveSpeed;
+        
+            if (horizontalValue > 0)
+            {
+                ruka_T.localScale = new Vector3(1, 1, 1);
+                animator.SetBool("walk", true);
+            }
+           
+           else if (horizontalValue < 0)
+           {
+                ruka_T.localScale = new Vector3(-1, 1, 1);
+                animator.SetBool("walk", true);
+           }
+        else
+        {
+            animator.SetBool("walk", false);
+        }
+           
     }
 }
