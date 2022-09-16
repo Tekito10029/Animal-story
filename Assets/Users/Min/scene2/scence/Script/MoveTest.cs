@@ -6,7 +6,9 @@ public class MoveTest : MonoBehaviour
 {
    
     Rigidbody2D rigid2D;
+    private Transform ruka_T;
     private Animator animator = null;
+    private float moveSpeed = 1f;
     [Header("Player")]
     [SerializeField]private GameObject Ruka;
     [Header("Inosisi")]
@@ -74,7 +76,7 @@ public class MoveTest : MonoBehaviour
 
     void Update()
     {
-        if (playerMove == false)
+       /* if (playerMove == false)
             {
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -95,7 +97,7 @@ public class MoveTest : MonoBehaviour
                     transform.localScale = new Vector3(1f, 1f, 1f);
                     animator.SetBool("walk", true);
                 }
-            }
+            }*/
         if(touchFlag == true)
         {
             if(Input.GetKeyDown(KeyCode.X))
@@ -497,5 +499,11 @@ public class MoveTest : MonoBehaviour
         {
             playerMove1 = false;
         }
+    }
+
+    void FixedUpdate()
+    {
+        float horizontalValue = Input.GetAxis("Horizontal");
+        rigid2D.velocity = new Vector2(horizontalValue, 0) * moveSpeed;
     }
 }
