@@ -43,6 +43,7 @@ public class EnemyFollowing : MonoBehaviour
     public float speed = 1.0f;
     public float speed1 = 1.0f;
     public float speed2 = 1.0f;
+    
 
     [Header("Between Enemy and Rock Distance")]
     public float RockDistance;
@@ -143,14 +144,14 @@ public class EnemyFollowing : MonoBehaviour
             
             if(Vector2.Distance(transform.position,bd2.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,bd2.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd2.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
                 StartCoroutine(backdistance2());
             }  
             IEnumerator backdistance2()
             {
                 yield return new WaitForSeconds(2);
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                if(Vector2.Distance(transform.position,stone2G.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,stone2G.position, speed2 * Time.deltaTime);  
                         animator.GetComponent<Animator>().enabled = true;
@@ -162,14 +163,14 @@ public class EnemyFollowing : MonoBehaviour
             
             if(Vector2.Distance(transform.position,bd3.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,bd3.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd3.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
                 StartCoroutine(backdistance3());
             }   
             IEnumerator backdistance3()
             {
                 yield return new WaitForSeconds(2);
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                if(Vector2.Distance(transform.position,stone3G.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,stone3G.position, speed2 * Time.deltaTime);  
                         animator.GetComponent<Animator>().enabled = true;
@@ -181,14 +182,14 @@ public class EnemyFollowing : MonoBehaviour
             
             if(Vector2.Distance(transform.position,bd4.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,bd4.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd4.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
                 StartCoroutine(backdistance4());
             } 
             IEnumerator backdistance4()
             {
                 yield return new WaitForSeconds(2);
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                if(Vector2.Distance(transform.position,stone4G.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,stone4G.position, speed2 * Time.deltaTime);  
                         animator.GetComponent<Animator>().enabled = true;
@@ -200,14 +201,14 @@ public class EnemyFollowing : MonoBehaviour
             
             if(Vector2.Distance(transform.position,bd5.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,bd5.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd5.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
                 StartCoroutine(backdistance5());
             }  
             IEnumerator backdistance5()
             {
                 yield return new WaitForSeconds(2);
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                if(Vector2.Distance(transform.position,stone5G.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,stone5G.position, speed2 * Time.deltaTime);  
                         animator.GetComponent<Animator>().enabled = true;
@@ -219,14 +220,14 @@ public class EnemyFollowing : MonoBehaviour
             
             if(Vector2.Distance(transform.position,bd6.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,bd6.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd6.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
                 StartCoroutine(backdistance6());
             }
                IEnumerator backdistance6()
             {
                 yield return new WaitForSeconds(2);
-                if(Vector2.Distance(transform.position,stone1G.position) > RockDistance)
+                if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed2 * Time.deltaTime);  
                         animator.GetComponent<Animator>().enabled = true;

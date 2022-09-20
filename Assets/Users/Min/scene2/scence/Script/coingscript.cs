@@ -31,7 +31,6 @@ public class coingscript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             applecount = true;
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
