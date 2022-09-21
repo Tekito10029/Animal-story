@@ -254,7 +254,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy6()
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4);
             if(EnemyCon.RockBig != null)
             {
                 Destroy(EnemyCon.RockBig.gameObject);
