@@ -21,12 +21,12 @@ public class MoveTest : MonoBehaviour
     [SerializeField]private GameObject RockCheckText;
     [Header("Apple_UI_Group")]
     [SerializeField] private GameObject _Apple_Buttom_UI1;
-    [SerializeField] private GameObject _Apple_Buttom_UI2;
+    /*[SerializeField] private GameObject _Apple_Buttom_UI2;
     [SerializeField] private GameObject _Apple_Buttom_UI3;
     [SerializeField] private GameObject _Apple_Buttom_UI4;
     [SerializeField] private GameObject _Apple_Buttom_UI5;
     [SerializeField] private GameObject _Apple_Buttom_UI6;
-    [SerializeField] private GameObject _Apple_Buttom_UI7;
+    [SerializeField] private GameObject _Apple_Buttom_UI7;*/
 
     [Header("Rock_UI_Group")]
     [SerializeField]private GameObject RockUI1;
@@ -280,7 +280,7 @@ public class MoveTest : MonoBehaviour
             {
                 _Apple_Buttom_UI1.SetActive(true);
             }
-            if (collision.gameObject.tag == "apple2")
+            /*if (collision.gameObject.tag == "apple2")
             {
                 _Apple_Buttom_UI2.SetActive(true);
             }
@@ -303,7 +303,7 @@ public class MoveTest : MonoBehaviour
             if (collision.gameObject.tag == "apple7")
             {
                 _Apple_Buttom_UI7.SetActive(true);
-            }
+            }*/
             if (collision.gameObject.tag == "Tele1")
             {
                 _Porta1.SetActive(true); 
@@ -345,7 +345,7 @@ public class MoveTest : MonoBehaviour
         {
             _Apple_Buttom_UI1.SetActive(false);
         }
-        if (collision.gameObject.tag == "apple2")
+       /* if (collision.gameObject.tag == "apple2")
         {
             _Apple_Buttom_UI2.SetActive(false);
         }
@@ -368,7 +368,7 @@ public class MoveTest : MonoBehaviour
         if (collision.gameObject.tag == "apple7")
         {
             _Apple_Buttom_UI7.SetActive(false);
-        }
+        }*/
         if (collision.gameObject.tag == "Tele1")
         {
             _Porta1.SetActive(false);
@@ -436,7 +436,7 @@ public class MoveTest : MonoBehaviour
         {
             animator.GetComponent<Animator>().enabled = false;
             RockFlag6 = true;
-            //RockCheckText.SetActive(true);
+            RockCheckText.SetActive(true);
             RockUI6.SetActive(true);
         }
         if(collision.gameObject.tag == "wall1")
@@ -488,7 +488,7 @@ public class MoveTest : MonoBehaviour
         if(collision.gameObject.tag == "RockBig")
         {
             animator.GetComponent<Animator>().enabled = true;
-            //RockCheckText.SetActive(false);
+            RockCheckText.SetActive(false);
             RockUI6.SetActive(false);
             RockFlag6 = false;
         }

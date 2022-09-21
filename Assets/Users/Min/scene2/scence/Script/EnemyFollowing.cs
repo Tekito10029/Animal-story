@@ -226,7 +226,7 @@ public class EnemyFollowing : MonoBehaviour
             }
                IEnumerator backdistance6()
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(3);
                 if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
                     {
                         transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed2 * Time.deltaTime);  
