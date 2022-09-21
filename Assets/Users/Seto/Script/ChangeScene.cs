@@ -6,7 +6,7 @@ public class ChangeScene : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKeyDown("x") || Input.GetButton("Fire2"))
         {
             SceneManager.LoadScene("PrologueScene", LoadSceneMode.Single);
         }
