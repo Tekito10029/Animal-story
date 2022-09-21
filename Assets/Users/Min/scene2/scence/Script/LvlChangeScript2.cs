@@ -11,6 +11,10 @@ public class LvlChangeScript2 : MonoBehaviour
     private Transform _spawnPoint2;
     [SerializeField]
     private GameObject FadeingThing;
+    [SerializeField]
+    private GameObject MapUI6;
+    [SerializeField]
+    private GameObject MapUI7;
 
 
 
@@ -49,6 +53,8 @@ public class LvlChangeScript2 : MonoBehaviour
                 yield return new WaitForSeconds(1f);
                 FindObjectOfType<MoveTest>().transform.position = _spawnPoint1.position;
                 FindObjectOfType<EnemyFollowing>().transform.position = _spawnPoint2.position;
+                MapUI6.SetActive(true);
+                MapUI7.SetActive(false);
             }
 
 

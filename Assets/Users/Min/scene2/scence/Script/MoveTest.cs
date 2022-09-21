@@ -111,6 +111,7 @@ public class MoveTest : MonoBehaviour
         {
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
+            touchFlag = false;
         }
         if(CounterScript.coinAmount < 0)
         {
@@ -213,7 +214,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy2()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone2 != null)
             {
                 Destroy(EnemyCon.stone2.gameObject);
@@ -223,7 +224,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy3()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone3 !=null)
             {
                 Destroy(EnemyCon.stone3.gameObject);
@@ -233,7 +234,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy4()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone4 != null)
             {
                 Destroy(EnemyCon.stone4.gameObject);
@@ -243,7 +244,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy5()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone5 != null)
             {
                 Destroy(EnemyCon.stone5.gameObject);
@@ -253,7 +254,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy6()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.RockBig != null)
             {
                 Destroy(EnemyCon.RockBig.gameObject);

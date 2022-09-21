@@ -18,18 +18,23 @@ public class EnemyFollowing : MonoBehaviour
     [Header("Rock1")]
     [SerializeField]public Transform stone2;
     [SerializeField]public Transform stone2G;
+    [SerializeField] public Transform bd2;
     [Header("Rock2")]
     [SerializeField]public Transform stone3;
     [SerializeField]public Transform stone3G;
+    [SerializeField] public Transform bd3;
     [Header("Rock3")]
     [SerializeField]public Transform stone4;
     [SerializeField]public Transform stone4G;
+    [SerializeField] public Transform bd4;
     [Header("Rock4")]
     [SerializeField]public Transform stone5;
     [SerializeField]public Transform stone5G;
+    [SerializeField] public Transform bd5;
     [Header("BigRock")]
     [SerializeField]public Transform RockBig;
     [SerializeField]public Transform RockBigG;
+    [SerializeField] public Transform bd6;
 
     [Header("Player Script")]
     public MoveTest mt;
@@ -38,6 +43,7 @@ public class EnemyFollowing : MonoBehaviour
     public float speed = 1.0f;
     public float speed1 = 1.0f;
     public float speed2 = 1.0f;
+    
 
     [Header("Between Enemy and Rock Distance")]
     public float RockDistance;
@@ -136,47 +142,97 @@ public class EnemyFollowing : MonoBehaviour
         if(isRock2)
         {
             
-            if(Vector2.Distance(transform.position,stone2G.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd2.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone2G.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd2.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
-            }   
+                StartCoroutine(backdistance2());
+            }  
+            IEnumerator backdistance2()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,stone2G.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,stone2G.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            } 
         }
         if(isRock3)
         {
             
-            if(Vector2.Distance(transform.position,stone3G.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd3.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone3G.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd3.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
+                StartCoroutine(backdistance3());
             }   
+            IEnumerator backdistance3()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,stone3G.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,stone3G.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            }
         }
         if(isRock4)
         {
             
-            if(Vector2.Distance(transform.position,stone4G.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd4.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone4G.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd4.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
-            }   
+                StartCoroutine(backdistance4());
+            } 
+            IEnumerator backdistance4()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,stone4G.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,stone4G.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            }  
         }
         if(isRock5)
         {
             
-            if(Vector2.Distance(transform.position,stone5G.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd5.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,stone5G.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd5.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
-            }   
+                StartCoroutine(backdistance5());
+            }  
+            IEnumerator backdistance5()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,stone5G.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,stone5G.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            } 
         }
         if(BigRock)
         {
             
-            if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
+            if(Vector2.Distance(transform.position,bd6.position) > RockDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,bd6.position, speed1 * Time.deltaTime);
                 animator.GetComponent<Animator>().enabled = true;
-            }   
+                StartCoroutine(backdistance6());
+            }
+               IEnumerator backdistance6()
+            {
+                yield return new WaitForSeconds(2);
+                if(Vector2.Distance(transform.position,RockBigG.position) > RockDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position,RockBigG.position, speed2 * Time.deltaTime);  
+                        animator.GetComponent<Animator>().enabled = true;
+                    }  
+            } 
         }
     } 
 
