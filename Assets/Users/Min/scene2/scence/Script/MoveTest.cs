@@ -6,7 +6,9 @@ public class MoveTest : MonoBehaviour
 {
    
     Rigidbody2D rigid2D;
+    private Transform ruka_T;
     private Animator animator = null;
+    [SerializeField] private float moveSpeed = 3f;
     [Header("Player")]
     [SerializeField]private GameObject Ruka;
     [Header("Inosisi")]
@@ -63,6 +65,7 @@ public class MoveTest : MonoBehaviour
     {
         this.rigid2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        ruka_T = this.GetComponent<Transform>();
         RockFlag1 = false;
         RockFlag2 = false;
         RockFlag3 = false;
@@ -74,7 +77,7 @@ public class MoveTest : MonoBehaviour
 
     void Update()
     {
-        if (playerMove == false)
+       /* if (playerMove == false)
             {
                 if (Input.GetKey(KeyCode.A))
                 {
@@ -95,10 +98,10 @@ public class MoveTest : MonoBehaviour
                     transform.localScale = new Vector3(1f, 1f, 1f);
                     animator.SetBool("walk", true);
                 }
-            }
+            }*/
         if(touchFlag == true)
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isFollowing = true; 
                 CounterScript.coinAmount -= 1;
@@ -108,6 +111,7 @@ public class MoveTest : MonoBehaviour
         {
             inosisitext.SetActive(false);
             TalkUI.SetActive(false);
+            touchFlag = false;
         }
         if(CounterScript.coinAmount < 0)
         {
@@ -140,7 +144,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag1 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock1 = true;
                 EnemyCon.isFollowing = false;
@@ -150,7 +154,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag2 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock2 = true;
                 EnemyCon.isFollowing = false;
@@ -160,7 +164,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag3 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock3 = true;
                 EnemyCon.isFollowing = false;
@@ -170,7 +174,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag4 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock4 = true;
                 EnemyCon.isFollowing = false;
@@ -180,7 +184,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag5 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.isRock5 = true;
                 EnemyCon.isFollowing = false;
@@ -190,7 +194,7 @@ public class MoveTest : MonoBehaviour
         }
         if(RockFlag6 == true)
         {
-            if(Input.GetKey(KeyCode.X))
+            if(Input.GetKey(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 EnemyCon.BigRock = true;
                 EnemyCon.isFollowing = false;
@@ -200,7 +204,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy1()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone1 != null)
             {
                  Destroy(EnemyCon.stone1.gameObject);
@@ -210,7 +214,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy2()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone2 != null)
             {
                 Destroy(EnemyCon.stone2.gameObject);
@@ -220,7 +224,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy3()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone3 !=null)
             {
                 Destroy(EnemyCon.stone3.gameObject);
@@ -230,7 +234,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy4()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone4 != null)
             {
                 Destroy(EnemyCon.stone4.gameObject);
@@ -240,7 +244,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy5()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.stone5 != null)
             {
                 Destroy(EnemyCon.stone5.gameObject);
@@ -250,7 +254,7 @@ public class MoveTest : MonoBehaviour
         }
         IEnumerator rockdestroy6()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             if(EnemyCon.RockBig != null)
             {
                 Destroy(EnemyCon.RockBig.gameObject);
@@ -395,107 +399,130 @@ public class MoveTest : MonoBehaviour
     {
         if(collision.gameObject.tag == "stone1")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag1 = true;
             RockCheckText.SetActive(true);
             RockUI1.SetActive(true);
         }
         if(collision.gameObject.tag == "stone2")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag2 = true;
             //RockCheckText.SetActive(true);
             RockUI2.SetActive(true);
         }
         if(collision.gameObject.tag == "stone3")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag3 = true;
             //RockCheckText.SetActive(true);
             RockUI3.SetActive(true);
         }
         if(collision.gameObject.tag == "stone4")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag4 = true;
             //RockCheckText.SetActive(true);
             RockUI4.SetActive(true);
         }
         if(collision.gameObject.tag == "stone5")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag5 = true;
             //RockCheckText.SetActive(true);
             RockUI5.SetActive(true);
         }
         if(collision.gameObject.tag == "RockBig")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
             RockFlag6 = true;
             //RockCheckText.SetActive(true);
             RockUI6.SetActive(true);
         }
         if(collision.gameObject.tag == "wall1")
         {
-            playerMove = true;
-            animator.SetBool("walk", false);
+            animator.GetComponent<Animator>().enabled = false;
         }
         if(collision.gameObject.tag == "wall2")
         {
-            playerMove1 = true;
+            animator.GetComponent<Animator>().enabled = false;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "stone1")
         {
-            playerMove1 = false;
+            animator.GetComponent<Animator>().enabled = true;
             RockCheckText.SetActive(false);
             RockUI1.SetActive(false);
             RockFlag1 = false;
         }
         if(collision.gameObject.tag == "stone2")
         {
-            playerMove1 = false;
+            animator.GetComponent<Animator>().enabled = true;
             //RockCheckText.SetActive(false);
             RockUI2.SetActive(false);
             RockFlag2 = false;
         }
         if(collision.gameObject.tag == "stone3")
         {
-            playerMove1 = false;
-           // RockCheckText.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            // RockCheckText.SetActive(false);
             RockUI3.SetActive(false);
             RockFlag3 = false;
         }
         if(collision.gameObject.tag == "stone4")
         {
-            playerMove1 = false;
-           // RockCheckText.SetActive(false);
+            animator.GetComponent<Animator>().enabled = true;
+            // RockCheckText.SetActive(false);
             RockUI4.SetActive(false);
             RockFlag4 = false;
         }
         if(collision.gameObject.tag == "stone5")
         {
-            playerMove1 = false;
+            animator.GetComponent<Animator>().enabled = true;
             //RockCheckText.SetActive(false);
             RockUI5.SetActive(false);
             RockFlag5 = false;
         }
         if(collision.gameObject.tag == "RockBig")
         {
-            playerMove1 = false;
+            animator.GetComponent<Animator>().enabled = true;
             //RockCheckText.SetActive(false);
             RockUI6.SetActive(false);
             RockFlag6 = false;
         }
-        if(collision.gameObject.tag == "wall1")
+        if (collision.gameObject.tag == "wall1")
         {
-            playerMove = false;
+            animator.GetComponent<Animator>().enabled = true;
         }
-        if(collision.gameObject.tag == "wall2")
+        if (collision.gameObject.tag == "wall2")
         {
-            playerMove1 = false;
+            animator.GetComponent<Animator>().enabled = true;
         }
+
+    }
+
+    void FixedUpdate()
+    {
+        float horizontalValue = Input.GetAxisRaw("Horizontal");
+        rigid2D.velocity = new Vector2(horizontalValue, 0) * moveSpeed;
+        
+            if (horizontalValue > 0)
+            {
+                ruka_T.localScale = new Vector3(1, 1, 1);
+                animator.SetBool("walk", true);
+            }
+           
+           else if (horizontalValue < 0)
+           {
+                ruka_T.localScale = new Vector3(-1, 1, 1);
+                animator.SetBool("walk", true);
+           }
+        else
+        {
+            animator.SetBool("walk", false);
+        }
+           
     }
 }

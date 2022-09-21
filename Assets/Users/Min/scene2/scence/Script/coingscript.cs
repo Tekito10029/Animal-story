@@ -17,7 +17,7 @@ public class coingscript : MonoBehaviour
     {
         if(applecount)
         {
-            if(Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2"))
             {
                 CounterScript.coinAmount += 1;
                 Destroy(gameObject);
@@ -31,7 +31,6 @@ public class coingscript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             applecount = true;
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

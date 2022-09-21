@@ -786,7 +786,7 @@ public class ScenarioManager : MonoBehaviour
     */
     private void PushSkipButton()
     {
-        if (!_isSkip && Input.GetKey(skipKey))
+        if (!_isSkip && Input.GetKey(skipKey) || Input.GetButtonDown("Fire1"))
         {
             _isSkip = true;
             StartCoroutine(Skip(skipSpeed));

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +22,7 @@ public class Swan : MonoBehaviour
             if (Comb == true)
             {
                 MoveStop = true;
-                if (Input.GetButton("Fire2") || Input.GetKeyDown(KeyCode.X))
+                if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.X))
                 {
                     ItemUse = true;
                 }
@@ -58,7 +56,7 @@ public class Swan : MonoBehaviour
             
             if (ItemUse == true)
             {
-                if (Input.GetButton("Fire2") || Input.GetKeyDown(KeyCode.X))
+                if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.X))
                 {
                     if (fadeNow == false)
                     {

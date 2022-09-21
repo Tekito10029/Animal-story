@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +12,7 @@ public class CombItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetButton("Fire2") || Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.X))
             {
                 Destroy(gameObject);
                 //_combimg.color = new Color32(0, 0, 0, 0);
